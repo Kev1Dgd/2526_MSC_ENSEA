@@ -1,0 +1,32 @@
+[2.547s] Invoking command in '/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc/build --no-deps symlink_data
+[3.436s] running develop
+[3.437s] /usr/lib/python3/dist-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.
+[3.437s] !!
+[3.438s] 
+[3.438s]         ********************************************************************************
+[3.438s]         Please avoid running ``setup.py`` and ``easy_install``.
+[3.438s]         Instead, use pypa/build, pypa/installer or other
+[3.439s]         standards-based tools.
+[3.439s] 
+[3.439s]         See https://github.com/pypa/setuptools/issues/917 for details.
+[3.439s]         ********************************************************************************
+[3.439s] 
+[3.440s] !!
+[3.440s]   easy_install.initialize_options(self)
+[3.924s] running egg_info
+[3.980s] writing chenille_msc.egg-info/PKG-INFO
+[3.981s] writing dependency_links to chenille_msc.egg-info/dependency_links.txt
+[3.981s] writing entry points to chenille_msc.egg-info/entry_points.txt
+[3.982s] writing requirements to chenille_msc.egg-info/requires.txt
+[3.985s] writing top-level names to chenille_msc.egg-info/top_level.txt
+[4.087s] reading manifest file 'chenille_msc.egg-info/SOURCES.txt'
+[4.091s] writing manifest file 'chenille_msc.egg-info/SOURCES.txt'
+[4.154s] running build_ext
+[4.155s] Creating /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/lib/python3.12/site-packages/chenille-msc.egg-link (link to .)
+[4.155s] Installing chenille_node script to /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/lib/chenille_msc
+[4.157s] 
+[4.158s] Installed /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc
+[4.158s] running symlink_data
+[4.158s] creating /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/share/chenille_msc/launch
+[4.158s] symbolically linking /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc/launch/launch_chenille.py -> /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/share/chenille_msc/launch
+[4.242s] Invoked command in '/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc/build --no-deps symlink_data

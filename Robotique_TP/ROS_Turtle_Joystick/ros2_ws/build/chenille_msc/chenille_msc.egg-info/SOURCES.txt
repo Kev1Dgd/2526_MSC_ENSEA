@@ -1,0 +1,14 @@
+package.xml
+setup.cfg
+setup.py
+chenille_msc/__init__.py
+chenille_msc/chenille_node.py
+chenille_msc.egg-info/PKG-INFO
+chenille_msc.egg-info/SOURCES.txt
+chenille_msc.egg-info/dependency_links.txt
+chenille_msc.egg-info/entry_points.txt
+chenille_msc.egg-info/requires.txt
+chenille_msc.egg-info/top_level.txt
+chenille_msc.egg-info/zip-safe
+launch/launch_chenille.py
+resource/chenille_msc

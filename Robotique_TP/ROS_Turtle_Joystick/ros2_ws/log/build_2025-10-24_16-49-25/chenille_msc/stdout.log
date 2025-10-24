@@ -1,0 +1,17 @@
+running develop
+running egg_info
+writing chenille_msc.egg-info/PKG-INFO
+writing dependency_links to chenille_msc.egg-info/dependency_links.txt
+writing entry points to chenille_msc.egg-info/entry_points.txt
+writing requirements to chenille_msc.egg-info/requires.txt
+writing top-level names to chenille_msc.egg-info/top_level.txt
+reading manifest file 'chenille_msc.egg-info/SOURCES.txt'
+writing manifest file 'chenille_msc.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/lib/python3.12/site-packages/chenille-msc.egg-link (link to .)
+Installing chenille_node script to /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/lib/chenille_msc
+
+Installed /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc
+running symlink_data
+creating /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/share/chenille_msc/launch
+symbolically linking /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc/launch/launch_chenille.py -> /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/share/chenille_msc/launch

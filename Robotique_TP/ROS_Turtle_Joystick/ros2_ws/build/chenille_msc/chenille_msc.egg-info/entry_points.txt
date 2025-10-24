@@ -1,0 +1,2 @@
+[console_scripts]
+chenille_node = chenille_msc.chenille_node:main

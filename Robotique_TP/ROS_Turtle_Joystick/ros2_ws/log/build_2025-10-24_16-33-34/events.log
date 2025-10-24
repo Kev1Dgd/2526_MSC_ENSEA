@@ -1,0 +1,81 @@
+[0.000000] (-) TimerEvent: {}
+[0.005642] (chenille_msc) JobQueued: {'identifier': 'chenille_msc', 'dependencies': OrderedDict()}
+[0.006213] (chenille_msc) JobStarted: {'identifier': 'chenille_msc'}
+[0.126570] (-) TimerEvent: {}
+[0.231857] (-) TimerEvent: {}
+[0.511457] (-) TimerEvent: {}
+[0.614940] (-) TimerEvent: {}
+[0.717988] (-) TimerEvent: {}
+[0.819802] (-) TimerEvent: {}
+[0.920967] (-) TimerEvent: {}
+[1.022164] (-) TimerEvent: {}
+[1.123435] (-) TimerEvent: {}
+[1.224411] (-) TimerEvent: {}
+[1.326739] (-) TimerEvent: {}
+[1.428390] (-) TimerEvent: {}
+[1.529229] (-) TimerEvent: {}
+[1.629980] (-) TimerEvent: {}
+[2.049489] (-) TimerEvent: {}
+[2.157590] (-) TimerEvent: {}
+[2.229436] (chenille_msc) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc/build', '--no-deps', 'symlink_data'], 'cwd': '/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'fr_FR', 'USER': 'ensea', 'XDG_SEAT': 'seat0', 'SSH_AGENT_PID': '1292', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/ensea', 'OLDPWD': '/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/src', 'DESKTOP_SESSION': 'xubuntu', 'ROS_PYTHON_VERSION': '3', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1001/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'QT_QPA_PLATFORMTHEME': 'gtk2', 'COLCON_PREFIX_PATH': '/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/src/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ensea', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'CLUTTER_BACKEND': 'x11', 'TERM': 'xterm-256color', 'GTK_OVERLAY_SCROLLING': '0', 'XDG_SESSION_ID': 'c1', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/Ros2Ensea2024:@/tmp/.ICE-unix/1170,unix/Ros2Ensea2024:/tmp/.ICE-unix/1170', 'GDM_LANG': 'en', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'XDG_MENU_PREFIX': 'xfce-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/7003f3a5_eabd_42cf_b2a6_a1ea6bef2648', 'XDG_RUNTIME_DIR': '/run/user/1001', 'DISPLAY': ':0.0', 'LANG': 'fr_FR.UTF-8', 'XDG_CURRENT_DESKTOP': 'XFCE', 'XDG_SESSION_DESKTOP': 'xubuntu', 'XAUTHORITY': '/home/ensea/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.44', 'SSH_AUTH_SOCK': '/tmp/ssh-FULRjuST3DAh/agent.1291', 'GSETTINGS_SCHEMA_DIR': '/home/ensea/data', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/ensea', 'AMENT_PREFIX_PATH': '/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/src/install/chenille_msc:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'GDMSESSION': 'xubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GCC_COLORS': 'error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'XDG_VTNR': '7', 'PWD': '/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-xubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/xubuntu:/usr/share/xfce4:/usr/local/share:/usr/share:/var/lib/snapd/desktop:/usr/share', 'PYTHONPATH': '/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/lib/python3.12/site-packages:/home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/src/install/chenille_msc/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[2.258373] (-) TimerEvent: {}
+[2.359820] (-) TimerEvent: {}
+[2.460945] (-) TimerEvent: {}
+[2.562430] (-) TimerEvent: {}
+[2.663502] (-) TimerEvent: {}
+[2.764869] (-) TimerEvent: {}
+[2.867594] (-) TimerEvent: {}
+[2.971256] (-) TimerEvent: {}
+[3.072617] (-) TimerEvent: {}
+[3.174076] (-) TimerEvent: {}
+[3.275959] (-) TimerEvent: {}
+[3.377213] (-) TimerEvent: {}
+[3.419405] (chenille_msc) StdoutLine: {'line': b'running develop\n'}
+[3.423921] (chenille_msc) StderrLine: {'line': b'/usr/lib/python3/dist-packages/setuptools/command/develop.py:40: EasyInstallDeprecationWarning: easy_install command is deprecated.\n'}
+[3.424395] (chenille_msc) StderrLine: {'line': b'!!\n'}
+[3.424623] (chenille_msc) StderrLine: {'line': b'\n'}
+[3.424834] (chenille_msc) StderrLine: {'line': b'        ********************************************************************************\n'}
+[3.425036] (chenille_msc) StderrLine: {'line': b'        Please avoid running ``setup.py`` and ``easy_install``.\n'}
+[3.425734] (chenille_msc) StderrLine: {'line': b'        Instead, use pypa/build, pypa/installer or other\n'}
+[3.426375] (chenille_msc) StderrLine: {'line': b'        standards-based tools.\n'}
+[3.426671] (chenille_msc) StderrLine: {'line': b'\n'}
+[3.426958] (chenille_msc) StderrLine: {'line': b'        See https://github.com/pypa/setuptools/issues/917 for details.\n'}
+[3.428243] (chenille_msc) StderrLine: {'line': b'        ********************************************************************************\n'}
+[3.428474] (chenille_msc) StderrLine: {'line': b'\n'}
+[3.428670] (chenille_msc) StderrLine: {'line': b'!!\n'}
+[3.428871] (chenille_msc) StderrLine: {'line': b'  easy_install.initialize_options(self)\n'}
+[3.477506] (-) TimerEvent: {}
+[3.578874] (-) TimerEvent: {}
+[3.681075] (-) TimerEvent: {}
+[3.782553] (-) TimerEvent: {}
+[3.884245] (-) TimerEvent: {}
+[3.985324] (-) TimerEvent: {}
+[4.088741] (-) TimerEvent: {}
+[4.132017] (chenille_msc) StdoutLine: {'line': b'running egg_info\n'}
+[4.132286] (chenille_msc) StdoutLine: {'line': b'creating chenille_msc.egg-info\n'}
+[4.190921] (-) TimerEvent: {}
+[4.193154] (chenille_msc) StdoutLine: {'line': b'writing chenille_msc.egg-info/PKG-INFO\n'}
+[4.194075] (chenille_msc) StdoutLine: {'line': b'writing dependency_links to chenille_msc.egg-info/dependency_links.txt\n'}
+[4.194849] (chenille_msc) StdoutLine: {'line': b'writing entry points to chenille_msc.egg-info/entry_points.txt\n'}
+[4.195059] (chenille_msc) StdoutLine: {'line': b'writing requirements to chenille_msc.egg-info/requires.txt\n'}
+[4.196296] (chenille_msc) StdoutLine: {'line': b'writing top-level names to chenille_msc.egg-info/top_level.txt\n'}
+[4.196549] (chenille_msc) StdoutLine: {'line': b"writing manifest file 'chenille_msc.egg-info/SOURCES.txt'\n"}
+[4.291969] (-) TimerEvent: {}
+[4.322594] (chenille_msc) StdoutLine: {'line': b"reading manifest file 'chenille_msc.egg-info/SOURCES.txt'\n"}
+[4.325973] (chenille_msc) StdoutLine: {'line': b"writing manifest file 'chenille_msc.egg-info/SOURCES.txt'\n"}
+[4.380958] (chenille_msc) StdoutLine: {'line': b'running build_ext\n'}
+[4.382831] (chenille_msc) StdoutLine: {'line': b'Creating /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/lib/python3.12/site-packages/chenille-msc.egg-link (link to .)\n'}
+[4.385036] (chenille_msc) StdoutLine: {'line': b'Installing chenille_node script to /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/lib/chenille_msc\n'}
+[4.386064] (chenille_msc) StdoutLine: {'line': b'\n'}
+[4.386284] (chenille_msc) StdoutLine: {'line': b'Installed /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc\n'}
+[4.386513] (chenille_msc) StdoutLine: {'line': b'running symlink_data\n'}
+[4.387644] (chenille_msc) StdoutLine: {'line': b'creating /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/share/ament_index\n'}
+[4.388399] (chenille_msc) StdoutLine: {'line': b'creating /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/share/ament_index/resource_index\n'}
+[4.388548] (chenille_msc) StdoutLine: {'line': b'creating /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/share/ament_index/resource_index/packages\n'}
+[4.389213] (chenille_msc) StdoutLine: {'line': b'symbolically linking /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc/resource/chenille_msc -> /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/share/ament_index/resource_index/packages\n'}
+[4.389495] (chenille_msc) StdoutLine: {'line': b'symbolically linking /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/build/chenille_msc/package.xml -> /home/ensea/Documents/ROS_Turtle_Joystick/ros2_ws/install/chenille_msc/share/chenille_msc\n'}
+[4.393873] (-) TimerEvent: {}
+[4.496036] (-) TimerEvent: {}
+[4.501827] (chenille_msc) CommandEnded: {'returncode': 0}
+[4.559770] (chenille_msc) JobEnded: {'identifier': 'chenille_msc', 'rc': 0}
+[4.562482] (-) EventReactorShutdown: {}
