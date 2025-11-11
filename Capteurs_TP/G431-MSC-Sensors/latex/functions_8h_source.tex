@@ -1,0 +1,48 @@
+\doxysection{functions.\+h}
+\hypertarget{functions_8h_source}{}\label{functions_8h_source}\index{Utils/Inc/functions.h@{Utils/Inc/functions.h}}
+\mbox{\hyperlink{functions_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ INC\_FUNCTIONS\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ INC\_FUNCTIONS\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}stm32g4xx\_hal.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_a475cbe44faa4392214446b640c68dba6}{checkMPU9250\_ID}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00013\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_ab2b278a43b9fb3b2065404c3af23c018}{InitSensors}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{functions_8h_a609d60e69c330bb07da90fe52c696012}{TempMeasureMsg}}(\textcolor{keywordtype}{char}\ *buffer,\ \textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_afd10824359eafaae1c8c5b368191d9bf}{AccMeasureMsg}}(\textcolor{keywordtype}{double}\ *acc\_data,\ \textcolor{keywordtype}{char}\ *buffer,\ \textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_aea41664aad69f91167778bc48d74d1ff}{GyroMeasureMsg}}(\textcolor{keywordtype}{double}\ *gyro\_data,\ \textcolor{keywordtype}{char}\ *buffer,\ \textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_af10a70d5b7b5a96fcbd690f3e632b759}{MagMeasureMsg}}(\textcolor{keywordtype}{double}\ *mag\_data,\ \textcolor{keywordtype}{char}\ *buffer,\ \textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{functions_8h_a794bd96d13565b881a5c75f01f15f24c}{ReadAccelSensitivity}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{functions_8h_a4de4adaa21486f401e0492bbb6448b28}{ReadGyroSensitivity}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{functions_8h_a8fdc8ed94ae5bc0de87a2615a40d48fa}{ReadMagSensitivity}}(uint8\_t\ bit16\_mode);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_abc76685afe611a4f3d376492999d1a18}{TestAccelSensZ}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_a96e04f22034e748f359124045d95c2cc}{GyrNoise}}(\textcolor{keywordtype}{double}\ *gyro\_rms,\ uint16\_t\ nb\_samples);}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_a156dae4b02548e795db916a83c2e42c6}{TestGyroNoise}}(uint16\_t\ nb\_samples);}
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ SetGyroBandwidth(uint8\_t\ bw\_code);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_afbb394a6d48b4ff9c387bdeb04063f3d}{Average}}(\textcolor{keywordtype}{float}\ data[][3],\ \textcolor{keywordtype}{int}\ N,\ \textcolor{keywordtype}{float}\ avg[3]);}
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_af2f2dc756799f92592e71afd54cc90da}{Variance}}(\textcolor{keywordtype}{float}\ data[][3],\ \textcolor{keywordtype}{int}\ N,\ \textcolor{keywordtype}{float}\ avg[3],\ \textcolor{keywordtype}{float}\ var[3]);}
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_a15ba7a6fbb571096190a0bf9021e1d4f}{GyrCalib}}(uint16\_t\ N);}
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_af59b758cf9be11003885a8d7fdfc0a29}{ReadGyro}}(\textcolor{keywordtype}{float}\ *gx,\ \textcolor{keywordtype}{float}\ *gy,\ \textcolor{keywordtype}{float}\ *gz);}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_ae557576c323413660d4333b59ab29c47}{ReadOffsetGyro}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_a3d8a5815f4baf803e29e0cc674fd948c}{ReadMag}}(\textcolor{keywordtype}{float}\ *mx,\ \textcolor{keywordtype}{float}\ *my,\ \textcolor{keywordtype}{float}\ *mz);}
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_a9ed7d1f460509ff709c12b6dda8dfcec}{MagAcquireSamples}}(\textcolor{keywordtype}{float}\ *Bx,\ \textcolor{keywordtype}{float}\ *By,\ \textcolor{keywordtype}{float}\ *Bz,\ uint16\_t\ N,\ uint16\_t\ delay\_ms);}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_aed6408105121db33d5a4c916458e738d}{MagComputeOffsets}}(\textcolor{keywordtype}{float}\ *Bx,\ \textcolor{keywordtype}{float}\ *By,\ \textcolor{keywordtype}{float}\ *Bz,\ uint16\_t\ N,\ \textcolor{keywordtype}{float}\ *offsetX,\ \textcolor{keywordtype}{float}\ *offsetY,\ \textcolor{keywordtype}{float}\ *offsetZ);}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_ab8994e95b7ad9fd14ef0cb9ef4f36f2a}{MagPrintOffsets}}(\textcolor{keywordtype}{float}\ offsetX,\ \textcolor{keywordtype}{float}\ offsetY,\ \textcolor{keywordtype}{float}\ offsetZ);}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_a37563722bbc00cd9d39411f24cabca2b}{MagCalibLite}}(uint16\_t\ N,\ uint16\_t\ delay\_ms);}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_adcd7555662d0c7cc435ff47a30af3ba4}{MagCalib}}(I2C\_HandleTypeDef\ *hi2c,\ \textcolor{keywordtype}{double}\ mag\_bias[3],\ \textcolor{keywordtype}{double}\ mag\_scale[3]);}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_a1b722895e8773e455ab662032c6e3517}{MagMeasureMsgCalib}}(\textcolor{keywordtype}{double}\ *mag\_data,\ \textcolor{keywordtype}{char}\ *buffer,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ mag\_bias[3],\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ mag\_scale[3]);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_FUNCTIONS\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

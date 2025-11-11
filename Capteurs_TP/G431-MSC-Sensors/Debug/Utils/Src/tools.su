@@ -1,0 +1,7 @@
+../Utils/Src/tools.c:31:23:button_is_pressed	16	static
+../Utils/Src/tools.c:47:6:setup	16	static
+../Utils/Src/tools.c:60:6:loop	24	static
+../Utils/Src/tools.c:87:6:I2C_scan	16	static
+../Utils/Src/tools.c:111:6:test_LED	8	static
+../Utils/Src/tools.c:128:5:SaveMagToCSV	64	static
+../Utils/Src/tools.c:148:6:TestMagCSV	104	dynamic

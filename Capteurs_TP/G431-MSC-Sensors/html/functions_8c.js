@@ -1,0 +1,28 @@
+var functions_8c =
+[
+    [ "AccMeasureMsg", "functions_8c.html#afd10824359eafaae1c8c5b368191d9bf", null ],
+    [ "Average", "functions_8c.html#afbb394a6d48b4ff9c387bdeb04063f3d", null ],
+    [ "checkMPU9250_ID", "functions_8c.html#a475cbe44faa4392214446b640c68dba6", null ],
+    [ "Error_Handler", "functions_8c.html#a1730ffe1e560465665eb47d9264826f9", null ],
+    [ "GyrCalib", "functions_8c.html#a15ba7a6fbb571096190a0bf9021e1d4f", null ],
+    [ "GyrNoise", "functions_8c.html#a96e04f22034e748f359124045d95c2cc", null ],
+    [ "GyroMeasureMsg", "functions_8c.html#aea41664aad69f91167778bc48d74d1ff", null ],
+    [ "InitSensors", "functions_8c.html#ab2b278a43b9fb3b2065404c3af23c018", null ],
+    [ "MagAcquireSamples", "functions_8c.html#a9ed7d1f460509ff709c12b6dda8dfcec", null ],
+    [ "MagCalib", "functions_8c.html#adcd7555662d0c7cc435ff47a30af3ba4", null ],
+    [ "MagCalibLite", "functions_8c.html#a37563722bbc00cd9d39411f24cabca2b", null ],
+    [ "MagComputeOffsets", "functions_8c.html#aed6408105121db33d5a4c916458e738d", null ],
+    [ "MagMeasureMsg", "functions_8c.html#af10a70d5b7b5a96fcbd690f3e632b759", null ],
+    [ "MagMeasureMsgCalib", "functions_8c.html#a1b722895e8773e455ab662032c6e3517", null ],
+    [ "MagPrintOffsets", "functions_8c.html#ab8994e95b7ad9fd14ef0cb9ef4f36f2a", null ],
+    [ "ReadAccelSensitivity", "functions_8c.html#a794bd96d13565b881a5c75f01f15f24c", null ],
+    [ "ReadGyro", "functions_8c.html#af59b758cf9be11003885a8d7fdfc0a29", null ],
+    [ "ReadGyroSensitivity", "functions_8c.html#a4de4adaa21486f401e0492bbb6448b28", null ],
+    [ "ReadMag", "functions_8c.html#a3d8a5815f4baf803e29e0cc674fd948c", null ],
+    [ "ReadMagSensitivity", "functions_8c.html#a8fdc8ed94ae5bc0de87a2615a40d48fa", null ],
+    [ "ReadOffsetGyro", "functions_8c.html#ae557576c323413660d4333b59ab29c47", null ],
+    [ "TempMeasureMsg", "functions_8c.html#a609d60e69c330bb07da90fe52c696012", null ],
+    [ "TestAccelSensZ", "functions_8c.html#abc76685afe611a4f3d376492999d1a18", null ],
+    [ "TestGyroNoise", "functions_8c.html#a156dae4b02548e795db916a83c2e42c6", null ],
+    [ "Variance", "functions_8c.html#af2f2dc756799f92592e71afd54cc90da", null ]
+];

@@ -1,0 +1,7 @@
+../Utils/Src/tools.c:31:23:button_is_pressed	1
+../Utils/Src/tools.c:47:6:setup	1
+../Utils/Src/tools.c:60:6:loop	2
+../Utils/Src/tools.c:87:6:I2C_scan	3
+../Utils/Src/tools.c:111:6:test_LED	1
+../Utils/Src/tools.c:128:5:SaveMagToCSV	3
+../Utils/Src/tools.c:148:6:TestMagCSV	2

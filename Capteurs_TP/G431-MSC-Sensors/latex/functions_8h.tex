@@ -1,0 +1,543 @@
+\doxysection{Utils/\+Inc/functions.h File Reference}
+\hypertarget{functions_8h}{}\label{functions_8h}\index{Utils/Inc/functions.h@{Utils/Inc/functions.h}}
+
+
+En-\/têtes des fonctions de gestion du MPU-\/9250.  
+
+
+{\ttfamily \#include "{}stm32g4xx\+\_\+hal.\+h"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for functions.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{functions_8h_a475cbe44faa4392214446b640c68dba6}{check\+MPU9250\+\_\+\+ID}} (void)
+\begin{DoxyCompactList}\small\item\em Lecture du registre WHO\+\_\+\+AM\+\_\+I du MPU-\/9250 pour vérifier sa présence. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_ab2b278a43b9fb3b2065404c3af23c018}{Init\+Sensors}} (void)
+\begin{DoxyCompactList}\small\item\em Initialise le MPU-\/9250 et le magnétomètre AK8963. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{functions_8h_a609d60e69c330bb07da90fe52c696012}{Temp\+Measure\+Msg}} (char \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Mesure la température et écrit le résultat dans un buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_afd10824359eafaae1c8c5b368191d9bf}{Acc\+Measure\+Msg}} (double \texorpdfstring{$\ast$}{*}acc\+\_\+data, char \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Mesure l\textquotesingle{}accélération selon les 3 axes du MPU-\/9250. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_aea41664aad69f91167778bc48d74d1ff}{Gyro\+Measure\+Msg}} (double \texorpdfstring{$\ast$}{*}gyro\+\_\+data, char \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Mesure la vitesse angulaire sur les 3 axes du MPU-\/9250. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_af10a70d5b7b5a96fcbd690f3e632b759}{Mag\+Measure\+Msg}} (double \texorpdfstring{$\ast$}{*}mag\+\_\+data, char \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Mesure le champ magnétique 3D via le magnétomètre AK8963. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{functions_8h_a794bd96d13565b881a5c75f01f15f24c}{Read\+Accel\+Sensitivity}} (void)
+\begin{DoxyCompactList}\small\item\em Lit la sensibilité réelle de l\textquotesingle{}accéléromètre MPU-\/9250. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{functions_8h_a4de4adaa21486f401e0492bbb6448b28}{Read\+Gyro\+Sensitivity}} (void)
+\begin{DoxyCompactList}\small\item\em Lit la sensibilité réelle du gyroscope MPU-\/9250. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{functions_8h_a8fdc8ed94ae5bc0de87a2615a40d48fa}{Read\+Mag\+Sensitivity}} (uint8\+\_\+t bit16\+\_\+mode)
+\begin{DoxyCompactList}\small\item\em Lit la sensibilité nominale du magnétomètre AK8963 selon le mode de sortie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_abc76685afe611a4f3d376492999d1a18}{Test\+Accel\+SensZ}} (void)
+\begin{DoxyCompactList}\small\item\em Teste l\textquotesingle{}accéléromètre sur toutes les plages de sensibilité et affiche Z. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_a96e04f22034e748f359124045d95c2cc}{Gyr\+Noise}} (double \texorpdfstring{$\ast$}{*}gyro\+\_\+rms, uint16\+\_\+t nb\+\_\+samples)
+\begin{DoxyCompactList}\small\item\em Calcule le bruit RMS du gyroscope sur les 3 axes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_a156dae4b02548e795db916a83c2e42c6}{Test\+Gyro\+Noise}} (uint16\+\_\+t nb\+\_\+samples)
+\begin{DoxyCompactList}\small\item\em Teste le bruit RMS du gyroscope pour différentes bandes passantes. \end{DoxyCompactList}\item 
+\Hypertarget{functions_8h_ab42d6cb66491b1a2ac65d85e6de904a5}\label{functions_8h_ab42d6cb66491b1a2ac65d85e6de904a5} 
+void {\bfseries Set\+Gyro\+Bandwidth} (uint8\+\_\+t bw\+\_\+code)
+\item 
+void \mbox{\hyperlink{functions_8h_afbb394a6d48b4ff9c387bdeb04063f3d}{Average}} (float data\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}, int N, float avg\mbox{[}3\mbox{]})
+\begin{DoxyCompactList}\small\item\em Calcule la moyenne de N mesures gyroscopiques. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_af2f2dc756799f92592e71afd54cc90da}{Variance}} (float data\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}, int N, float avg\mbox{[}3\mbox{]}, float var\mbox{[}3\mbox{]})
+\begin{DoxyCompactList}\small\item\em Calcule la variance des N mesures gyroscopiques. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_a15ba7a6fbb571096190a0bf9021e1d4f}{Gyr\+Calib}} (uint16\+\_\+t N)
+\begin{DoxyCompactList}\small\item\em Calibre le gyroscope en mode "{}single point"{} (no turn). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_af59b758cf9be11003885a8d7fdfc0a29}{Read\+Gyro}} (float \texorpdfstring{$\ast$}{*}gx, float \texorpdfstring{$\ast$}{*}gy, float \texorpdfstring{$\ast$}{*}gz)
+\begin{DoxyCompactList}\small\item\em Lit les vitesses angulaires brutes (°/s) sur les 3 axes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_ae557576c323413660d4333b59ab29c47}{Read\+Offset\+Gyro}} (void)
+\begin{DoxyCompactList}\small\item\em Lit les offsets matériels du gyroscope dans le MPU-\/9250 et les affiche. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_a3d8a5815f4baf803e29e0cc674fd948c}{Read\+Mag}} (float \texorpdfstring{$\ast$}{*}mx, float \texorpdfstring{$\ast$}{*}my, float \texorpdfstring{$\ast$}{*}mz)
+\begin{DoxyCompactList}\small\item\em Lit le champ magnétique 3D directement depuis le magnétomètre AK8963 sans afficher de message UART. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_a9ed7d1f460509ff709c12b6dda8dfcec}{Mag\+Acquire\+Samples}} (float \texorpdfstring{$\ast$}{*}Bx, float \texorpdfstring{$\ast$}{*}By, float \texorpdfstring{$\ast$}{*}Bz, uint16\+\_\+t N, uint16\+\_\+t delay\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Lit N mesures du magnétomètre et les stocke dans les tableaux Bx, By, Bz. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_aed6408105121db33d5a4c916458e738d}{Mag\+Compute\+Offsets}} (float \texorpdfstring{$\ast$}{*}Bx, float \texorpdfstring{$\ast$}{*}By, float \texorpdfstring{$\ast$}{*}Bz, uint16\+\_\+t N, float \texorpdfstring{$\ast$}{*}offsetX, float \texorpdfstring{$\ast$}{*}offsetY, float \texorpdfstring{$\ast$}{*}offsetZ)
+\begin{DoxyCompactList}\small\item\em Calcule les offsets moyens (hard iron) à partir des mesures. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_ab8994e95b7ad9fd14ef0cb9ef4f36f2a}{Mag\+Print\+Offsets}} (float offsetX, float offsetY, float offsetZ)
+\begin{DoxyCompactList}\small\item\em Affiche les offsets via UART. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_a37563722bbc00cd9d39411f24cabca2b}{Mag\+Calib\+Lite}} (uint16\+\_\+t N, uint16\+\_\+t delay\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Fonction complète pour la calibration « light » du magnétomètre \+: acquisition des mesures, calcul des offsets et affichage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_adcd7555662d0c7cc435ff47a30af3ba4}{Mag\+Calib}} (I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hi2c, double mag\+\_\+bias\mbox{[}3\mbox{]}, double mag\+\_\+scale\mbox{[}3\mbox{]})
+\begin{DoxyCompactList}\small\item\em Calibre le magnétomètre pour compenser les hard iron et soft iron biases. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8h_a1b722895e8773e455ab662032c6e3517}{Mag\+Measure\+Msg\+Calib}} (double \texorpdfstring{$\ast$}{*}mag\+\_\+data, char \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t size, const double mag\+\_\+bias\mbox{[}3\mbox{]}, const double mag\+\_\+scale\mbox{[}3\mbox{]})
+\begin{DoxyCompactList}\small\item\em Mesure le champ magnétique corrigé par calibration (hard + soft iron). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+En-\/têtes des fonctions de gestion du MPU-\/9250. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{functions_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{functions_8h_afd10824359eafaae1c8c5b368191d9bf}\index{functions.h@{functions.h}!AccMeasureMsg@{AccMeasureMsg}}
+\index{AccMeasureMsg@{AccMeasureMsg}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{AccMeasureMsg()}{AccMeasureMsg()}}
+{\footnotesize\ttfamily \label{functions_8h_afd10824359eafaae1c8c5b368191d9bf} 
+void Acc\+Measure\+Msg (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{acc\+\_\+data}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Mesure l\textquotesingle{}accélération selon les 3 axes du MPU-\/9250. 
+
+Lit les registres ACCEL\+\_\+\+XOUT\+\_\+\+H/L (0x3\+B/0x3C), ACCEL\+\_\+\+YOUT\+\_\+\+H/L (0x3\+D/0x3E), ACCEL\+\_\+\+ZOUT\+\_\+\+H/L (0x3\+F/0x40) via I2C et convertit les valeurs brutes en g.
+
+Les valeurs brutes sont codées en complément à 2 (int16\+\_\+t). Pour l\textquotesingle{}étendue par défaut ±2g, la conversion est \+: ax = ACCEL\+\_\+\+X\+\_\+\+RAW / 16384.\+0 ay = ACCEL\+\_\+\+Y\+\_\+\+RAW / 16384.\+0 az = ACCEL\+\_\+\+Z\+\_\+\+RAW / 16384.\+0
+
+La fonction affiche également les valeurs mesurées sur le terminal UART.
+
+
+\begin{DoxyParams}{Parameters}
+{\em acc\+\_\+data} & Pointeur vers un tableau de 3 doubles pour stocker \mbox{[}ax, ay, az\mbox{]} en g. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{functions_8h_afbb394a6d48b4ff9c387bdeb04063f3d}\index{functions.h@{functions.h}!Average@{Average}}
+\index{Average@{Average}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{Average()}{Average()}}
+{\footnotesize\ttfamily \label{functions_8h_afbb394a6d48b4ff9c387bdeb04063f3d} 
+void Average (\begin{DoxyParamCaption}\item[{float}]{data}{\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}, }\item[{int}]{N}{, }\item[{float}]{avg}{\mbox{[}3\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Calcule la moyenne de N mesures gyroscopiques. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Tableau contenant les mesures (X, Y, Z) \\
+\hline
+{\em N} & Nombre d’échantillons \\
+\hline
+{\em avg} & Tableau de sortie \mbox{[}3\mbox{]} pour stocker les moyennes \\
+\hline
+\end{DoxyParams}
+\Hypertarget{functions_8h_a475cbe44faa4392214446b640c68dba6}\index{functions.h@{functions.h}!checkMPU9250\_ID@{checkMPU9250\_ID}}
+\index{checkMPU9250\_ID@{checkMPU9250\_ID}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{checkMPU9250\_ID()}{checkMPU9250\_ID()}}
+{\footnotesize\ttfamily \label{functions_8h_a475cbe44faa4392214446b640c68dba6} 
+void check\+MPU9250\+\_\+\+ID (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Lecture du registre WHO\+\_\+\+AM\+\_\+I du MPU-\/9250 pour vérifier sa présence. 
+
+Lit le registre 0x75 du capteur (adresse 0x68) via le bus I2C. Affiche la valeur lue sur le terminal et allume la LED rouge en cas d’erreur.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{functions_8h_a15ba7a6fbb571096190a0bf9021e1d4f}\index{functions.h@{functions.h}!GyrCalib@{GyrCalib}}
+\index{GyrCalib@{GyrCalib}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{GyrCalib()}{GyrCalib()}}
+{\footnotesize\ttfamily \label{functions_8h_a15ba7a6fbb571096190a0bf9021e1d4f} 
+void Gyr\+Calib (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{N}{}\end{DoxyParamCaption})}
+
+
+
+Calibre le gyroscope en mode "{}single point"{} (no turn). 
+
+Cette fonction mesure N échantillons lorsque le capteur est immobile, calcule les offsets pour chaque axe et les écrit dans les registres matériels de compensation du MPU-\/9250.
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & Nombre d’échantillons utilisés pour la moyenne \\
+\hline
+\end{DoxyParams}
+\Hypertarget{functions_8h_a96e04f22034e748f359124045d95c2cc}\index{functions.h@{functions.h}!GyrNoise@{GyrNoise}}
+\index{GyrNoise@{GyrNoise}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{GyrNoise()}{GyrNoise()}}
+{\footnotesize\ttfamily \label{functions_8h_a96e04f22034e748f359124045d95c2cc} 
+void Gyr\+Noise (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{gyro\+\_\+rms}{, }\item[{uint16\+\_\+t}]{nb\+\_\+samples}{}\end{DoxyParamCaption})}
+
+
+
+Calcule le bruit RMS du gyroscope sur les 3 axes. 
+
+Lit nb\+\_\+samples valeurs du gyroscope, convertit en °/s et calcule le RMS.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{out}}  & {\em gyro\+\_\+rms} & Tableau de 3 doubles \mbox{[}gx, gy, gz\mbox{]} pour stocker les valeurs RMS. \\
+\hline
+\mbox{\texttt{in}}  & {\em nb\+\_\+samples} & Nombre d\textquotesingle{}échantillons à lire. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{functions_8h_aea41664aad69f91167778bc48d74d1ff}\index{functions.h@{functions.h}!GyroMeasureMsg@{GyroMeasureMsg}}
+\index{GyroMeasureMsg@{GyroMeasureMsg}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{GyroMeasureMsg()}{GyroMeasureMsg()}}
+{\footnotesize\ttfamily \label{functions_8h_aea41664aad69f91167778bc48d74d1ff} 
+void Gyro\+Measure\+Msg (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{gyro\+\_\+data}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Mesure la vitesse angulaire sur les 3 axes du MPU-\/9250. 
+
+Lit les registres GYRO\+\_\+\+XOUT\+\_\+\+H/L, GYRO\+\_\+\+YOUT\+\_\+\+H/L, GYRO\+\_\+\+ZOUT\+\_\+\+H/L et convertit les valeurs brutes en °/s.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gyro\+\_\+data} & Pointeur vers un tableau de 3 doubles \mbox{[}gx, gy, gz\mbox{]} en °/s \\
+\hline
+\end{DoxyParams}
+\Hypertarget{functions_8h_ab2b278a43b9fb3b2065404c3af23c018}\index{functions.h@{functions.h}!InitSensors@{InitSensors}}
+\index{InitSensors@{InitSensors}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{InitSensors()}{InitSensors()}}
+{\footnotesize\ttfamily \label{functions_8h_ab2b278a43b9fb3b2065404c3af23c018} 
+void Init\+Sensors (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initialise le MPU-\/9250 et le magnétomètre AK8963. 
+
+Cette fonction effectue les opérations suivantes \+:
+\begin{DoxyEnumerate}
+\item Reset du MPU-\/9250
+\item Sélection de l’horloge PLL interne
+\item Lecture et vérification du registre WHO\+\_\+\+AM\+\_\+I du MPU-\/9250
+\item Configuration du DLPF et du Sample Rate Divider pour ODR ≈ 3,91 Hz
+\item Activation du mode BYPASS I2C pour accéder au magnétomètre
+\item Lecture et vérification du registre WHO\+\_\+\+AM\+\_\+I du magnétomètre AK8963
+\item Configuration du magnétomètre \+: 16 bits, Continuous Measurement Mode 2 (100 Hz)
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Note}
+L’\+ODR du MPU-\/9250 est fixée à sa plus faible valeur (≈3,91 Hz) en utilisant SMPLRT\+\_\+\+DIV = 255 et DLPF\+\_\+\+CFG = 6. 
+\end{DoxyNote}
+\Hypertarget{functions_8h_a9ed7d1f460509ff709c12b6dda8dfcec}\index{functions.h@{functions.h}!MagAcquireSamples@{MagAcquireSamples}}
+\index{MagAcquireSamples@{MagAcquireSamples}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{MagAcquireSamples()}{MagAcquireSamples()}}
+{\footnotesize\ttfamily \label{functions_8h_a9ed7d1f460509ff709c12b6dda8dfcec} 
+void Mag\+Acquire\+Samples (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{Bx}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{By}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{Bz}{, }\item[{uint16\+\_\+t}]{N}{, }\item[{uint16\+\_\+t}]{delay\+\_\+ms}{}\end{DoxyParamCaption})}
+
+
+
+Lit N mesures du magnétomètre et les stocke dans les tableaux Bx, By, Bz. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Bx} & Tableau de float pour stocker les mesures X \\
+\hline
+{\em By} & Tableau de float pour stocker les mesures Y \\
+\hline
+{\em Bz} & Tableau de float pour stocker les mesures Z \\
+\hline
+{\em N} & Nombre de mesures à effectuer \\
+\hline
+{\em delay\+\_\+ms} & Délai entre chaque mesure en millisecondes \\
+\hline
+\end{DoxyParams}
+\Hypertarget{functions_8h_adcd7555662d0c7cc435ff47a30af3ba4}\index{functions.h@{functions.h}!MagCalib@{MagCalib}}
+\index{MagCalib@{MagCalib}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{MagCalib()}{MagCalib()}}
+{\footnotesize\ttfamily \label{functions_8h_adcd7555662d0c7cc435ff47a30af3ba4} 
+void Mag\+Calib (\begin{DoxyParamCaption}\item[{I2\+C\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hi2c}{, }\item[{double}]{mag\+\_\+bias}{\mbox{[}3\mbox{]}, }\item[{double}]{mag\+\_\+scale}{\mbox{[}3\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Calibre le magnétomètre pour compenser les hard iron et soft iron biases. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hi2c} & Pointeur vers la structure I2C (ex\+: \&hi2c1) \\
+\hline
+{\em mag\+\_\+bias} & Tableau de 3 doubles pour stocker les offsets (hard iron) calculés \\
+\hline
+{\em mag\+\_\+scale} & Tableau de 3 doubles pour stocker les coefficients correcteurs (soft iron) calculés \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+Utilise \doxylink{functions_8c_a3d8a5815f4baf803e29e0cc674fd948c}{Read\+Mag()} pour ne pas afficher de messages UART inutiles. 
+\end{DoxyNote}
+\Hypertarget{functions_8h_a37563722bbc00cd9d39411f24cabca2b}\index{functions.h@{functions.h}!MagCalibLite@{MagCalibLite}}
+\index{MagCalibLite@{MagCalibLite}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{MagCalibLite()}{MagCalibLite()}}
+{\footnotesize\ttfamily \label{functions_8h_a37563722bbc00cd9d39411f24cabca2b} 
+void Mag\+Calib\+Lite (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{N}{, }\item[{uint16\+\_\+t}]{delay\+\_\+ms}{}\end{DoxyParamCaption})}
+
+
+
+Fonction complète pour la calibration « light » du magnétomètre \+: acquisition des mesures, calcul des offsets et affichage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & Nombre de mesures à acquérir \\
+\hline
+{\em delay\+\_\+ms} & Délai entre chaque mesure en millisecondes \\
+\hline
+\end{DoxyParams}
+\Hypertarget{functions_8h_aed6408105121db33d5a4c916458e738d}\index{functions.h@{functions.h}!MagComputeOffsets@{MagComputeOffsets}}
+\index{MagComputeOffsets@{MagComputeOffsets}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{MagComputeOffsets()}{MagComputeOffsets()}}
+{\footnotesize\ttfamily \label{functions_8h_aed6408105121db33d5a4c916458e738d} 
+void Mag\+Compute\+Offsets (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{Bx}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{By}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{Bz}{, }\item[{uint16\+\_\+t}]{N}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{offsetX}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{offsetY}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{offsetZ}{}\end{DoxyParamCaption})}
+
+
+
+Calcule les offsets moyens (hard iron) à partir des mesures. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Bx} & Tableau des mesures X \\
+\hline
+{\em By} & Tableau des mesures Y \\
+\hline
+{\em Bz} & Tableau des mesures Z \\
+\hline
+{\em N} & Nombre de mesures \\
+\hline
+{\em offsetX} & Pointeur vers float pour stocker l\textquotesingle{}offset X moyen \\
+\hline
+{\em offsetY} & Pointeur vers float pour stocker l\textquotesingle{}offset Y moyen \\
+\hline
+{\em offsetZ} & Pointeur vers float pour stocker l\textquotesingle{}offset Z moyen \\
+\hline
+\end{DoxyParams}
+\Hypertarget{functions_8h_af10a70d5b7b5a96fcbd690f3e632b759}\index{functions.h@{functions.h}!MagMeasureMsg@{MagMeasureMsg}}
+\index{MagMeasureMsg@{MagMeasureMsg}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{MagMeasureMsg()}{MagMeasureMsg()}}
+{\footnotesize\ttfamily \label{functions_8h_af10a70d5b7b5a96fcbd690f3e632b759} 
+void Mag\+Measure\+Msg (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{mag\+\_\+data}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Mesure le champ magnétique 3D via le magnétomètre AK8963. 
+
+Lit les registres HXL à HZH (0x03 à 0x08), applique les coefficients d’ajustement (ASAX, ASAY, ASAZ), puis convertit les valeurs brutes en µT.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mag\+\_\+data} & Pointeur vers un tableau de 3 doubles \mbox{[}Bx, By, Bz\mbox{]} (µT) \\
+\hline
+{\em buffer} & Pointeur vers la chaîne de caractères à remplir \\
+\hline
+{\em size} & Taille du buffer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{functions_8h_a1b722895e8773e455ab662032c6e3517}\index{functions.h@{functions.h}!MagMeasureMsgCalib@{MagMeasureMsgCalib}}
+\index{MagMeasureMsgCalib@{MagMeasureMsgCalib}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{MagMeasureMsgCalib()}{MagMeasureMsgCalib()}}
+{\footnotesize\ttfamily \label{functions_8h_a1b722895e8773e455ab662032c6e3517} 
+void Mag\+Measure\+Msg\+Calib (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{mag\+\_\+data}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{size\+\_\+t}]{size}{, }\item[{const double}]{mag\+\_\+bias}{\mbox{[}3\mbox{]}, }\item[{const double}]{mag\+\_\+scale}{\mbox{[}3\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Mesure le champ magnétique corrigé par calibration (hard + soft iron). 
+
+Cette fonction applique les offsets (hard iron) et les coefficients de correction (soft iron) calculés lors de \doxylink{functions_8c_adcd7555662d0c7cc435ff47a30af3ba4}{Mag\+Calib()}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mag\+\_\+data} & Pointeur vers un tableau de 3 doubles \mbox{[}Bx, By, Bz\mbox{]} (µT) \\
+\hline
+{\em buffer} & Pointeur vers la chaîne de caractères à remplir (UART) \\
+\hline
+{\em size} & Taille du buffer \\
+\hline
+{\em mag\+\_\+bias} & Tableau \mbox{[}3\mbox{]} des offsets calculés \\
+\hline
+{\em mag\+\_\+scale} & Tableau \mbox{[}3\mbox{]} des coefficients correcteurs \\
+\hline
+\end{DoxyParams}
+\Hypertarget{functions_8h_ab8994e95b7ad9fd14ef0cb9ef4f36f2a}\index{functions.h@{functions.h}!MagPrintOffsets@{MagPrintOffsets}}
+\index{MagPrintOffsets@{MagPrintOffsets}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{MagPrintOffsets()}{MagPrintOffsets()}}
+{\footnotesize\ttfamily \label{functions_8h_ab8994e95b7ad9fd14ef0cb9ef4f36f2a} 
+void Mag\+Print\+Offsets (\begin{DoxyParamCaption}\item[{float}]{offsetX}{, }\item[{float}]{offsetY}{, }\item[{float}]{offsetZ}{}\end{DoxyParamCaption})}
+
+
+
+Affiche les offsets via UART. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em offsetX} & Offset moyen sur l\textquotesingle{}axe X \\
+\hline
+{\em offsetY} & Offset moyen sur l\textquotesingle{}axe Y \\
+\hline
+{\em offsetZ} & Offset moyen sur l\textquotesingle{}axe Z \\
+\hline
+\end{DoxyParams}
+\Hypertarget{functions_8h_a794bd96d13565b881a5c75f01f15f24c}\index{functions.h@{functions.h}!ReadAccelSensitivity@{ReadAccelSensitivity}}
+\index{ReadAccelSensitivity@{ReadAccelSensitivity}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{ReadAccelSensitivity()}{ReadAccelSensitivity()}}
+{\footnotesize\ttfamily \label{functions_8h_a794bd96d13565b881a5c75f01f15f24c} 
+double Read\+Accel\+Sensitivity (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Lit la sensibilité réelle de l\textquotesingle{}accéléromètre MPU-\/9250. 
+
+Lit le registre ACCEL\+\_\+\+CONFIG et retourne le facteur de conversion en LSB/g pour la plage configurée.
+
+\begin{DoxyReturn}{Returns}
+double Sensibilité (LSB/g) 
+\end{DoxyReturn}
+\Hypertarget{functions_8h_af59b758cf9be11003885a8d7fdfc0a29}\index{functions.h@{functions.h}!ReadGyro@{ReadGyro}}
+\index{ReadGyro@{ReadGyro}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{ReadGyro()}{ReadGyro()}}
+{\footnotesize\ttfamily \label{functions_8h_af59b758cf9be11003885a8d7fdfc0a29} 
+void Read\+Gyro (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{gx}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{gy}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{gz}{}\end{DoxyParamCaption})}
+
+
+
+Lit les vitesses angulaires brutes (°/s) sur les 3 axes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gx} & Pointeur vers la valeur X \\
+\hline
+{\em gy} & Pointeur vers la valeur Y \\
+\hline
+{\em gz} & Pointeur vers la valeur Z \\
+\hline
+\end{DoxyParams}
+\Hypertarget{functions_8h_a4de4adaa21486f401e0492bbb6448b28}\index{functions.h@{functions.h}!ReadGyroSensitivity@{ReadGyroSensitivity}}
+\index{ReadGyroSensitivity@{ReadGyroSensitivity}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{ReadGyroSensitivity()}{ReadGyroSensitivity()}}
+{\footnotesize\ttfamily \label{functions_8h_a4de4adaa21486f401e0492bbb6448b28} 
+double Read\+Gyro\+Sensitivity (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Lit la sensibilité réelle du gyroscope MPU-\/9250. 
+
+\begin{DoxyReturn}{Returns}
+double Sensibilité (LSB/(°/s)) selon la plage configurée 
+\end{DoxyReturn}
+\Hypertarget{functions_8h_a3d8a5815f4baf803e29e0cc674fd948c}\index{functions.h@{functions.h}!ReadMag@{ReadMag}}
+\index{ReadMag@{ReadMag}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{ReadMag()}{ReadMag()}}
+{\footnotesize\ttfamily \label{functions_8h_a3d8a5815f4baf803e29e0cc674fd948c} 
+void Read\+Mag (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{mx}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{my}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{mz}{}\end{DoxyParamCaption})}
+
+
+
+Lit le champ magnétique 3D directement depuis le magnétomètre AK8963 sans afficher de message UART. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mx} & Pointeur vers float pour stocker l\textquotesingle{}axe X (µT) \\
+\hline
+{\em my} & Pointeur vers float pour stocker l\textquotesingle{}axe Y (µT) \\
+\hline
+{\em mz} & Pointeur vers float pour stocker l\textquotesingle{}axe Z (µT) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{functions_8h_a8fdc8ed94ae5bc0de87a2615a40d48fa}\index{functions.h@{functions.h}!ReadMagSensitivity@{ReadMagSensitivity}}
+\index{ReadMagSensitivity@{ReadMagSensitivity}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{ReadMagSensitivity()}{ReadMagSensitivity()}}
+{\footnotesize\ttfamily \label{functions_8h_a8fdc8ed94ae5bc0de87a2615a40d48fa} 
+double Read\+Mag\+Sensitivity (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{bit16\+\_\+mode}{}\end{DoxyParamCaption})}
+
+
+
+Lit la sensibilité nominale du magnétomètre AK8963 selon le mode de sortie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit16\+\_\+mode} & Si 1, mode 16 bits (0.\+15 µ\+T/\+LSB). Si 0, mode 14 bits (0.\+6 µ\+T/\+LSB). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double Sensibilité du magnétomètre en µ\+T/\+LSB 
+\end{DoxyReturn}
+\Hypertarget{functions_8h_ae557576c323413660d4333b59ab29c47}\index{functions.h@{functions.h}!ReadOffsetGyro@{ReadOffsetGyro}}
+\index{ReadOffsetGyro@{ReadOffsetGyro}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{ReadOffsetGyro()}{ReadOffsetGyro()}}
+{\footnotesize\ttfamily \label{functions_8h_ae557576c323413660d4333b59ab29c47} 
+void Read\+Offset\+Gyro (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Lit les offsets matériels du gyroscope dans le MPU-\/9250 et les affiche. 
+
+\begin{DoxyNote}{Note}
+Permet de vérifier si les offsets écrits sont bien proches de 0 après calibration. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{functions_8h_a609d60e69c330bb07da90fe52c696012}\index{functions.h@{functions.h}!TempMeasureMsg@{TempMeasureMsg}}
+\index{TempMeasureMsg@{TempMeasureMsg}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{TempMeasureMsg()}{TempMeasureMsg()}}
+{\footnotesize\ttfamily \label{functions_8h_a609d60e69c330bb07da90fe52c696012} 
+double Temp\+Measure\+Msg (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Mesure la température et écrit le résultat dans un buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & pointeur vers char\mbox{[}\mbox{]} pour recevoir le message \\
+\hline
+{\em size} & taille du buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double température en °C 
+\end{DoxyReturn}
+\Hypertarget{functions_8h_abc76685afe611a4f3d376492999d1a18}\index{functions.h@{functions.h}!TestAccelSensZ@{TestAccelSensZ}}
+\index{TestAccelSensZ@{TestAccelSensZ}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{TestAccelSensZ()}{TestAccelSensZ()}}
+{\footnotesize\ttfamily \label{functions_8h_abc76685afe611a4f3d376492999d1a18} 
+void Test\+Accel\+SensZ (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Teste l\textquotesingle{}accéléromètre sur toutes les plages de sensibilité et affiche Z. 
+
+Affiche \+: FS\+\_\+\+SEL, plage (g), sensibilité (LSB/g), Z\+\_\+raw et Z\+\_\+g \Hypertarget{functions_8h_a156dae4b02548e795db916a83c2e42c6}\index{functions.h@{functions.h}!TestGyroNoise@{TestGyroNoise}}
+\index{TestGyroNoise@{TestGyroNoise}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{TestGyroNoise()}{TestGyroNoise()}}
+{\footnotesize\ttfamily \label{functions_8h_a156dae4b02548e795db916a83c2e42c6} 
+void Test\+Gyro\+Noise (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{nb\+\_\+samples}{}\end{DoxyParamCaption})}
+
+
+
+Teste le bruit RMS du gyroscope pour différentes bandes passantes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+\_\+samples} & Nombre de mesures pour calculer le RMS \\
+\hline
+\end{DoxyParams}
+\Hypertarget{functions_8h_af2f2dc756799f92592e71afd54cc90da}\index{functions.h@{functions.h}!Variance@{Variance}}
+\index{Variance@{Variance}!functions.h@{functions.h}}
+\doxysubsubsection{\texorpdfstring{Variance()}{Variance()}}
+{\footnotesize\ttfamily \label{functions_8h_af2f2dc756799f92592e71afd54cc90da} 
+void Variance (\begin{DoxyParamCaption}\item[{float}]{data}{\mbox{[}$\,$\mbox{]}\mbox{[}3\mbox{]}, }\item[{int}]{N}{, }\item[{float}]{avg}{\mbox{[}3\mbox{]}, }\item[{float}]{var}{\mbox{[}3\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Calcule la variance des N mesures gyroscopiques. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Tableau \mbox{[}N\mbox{]}\mbox{[}3\mbox{]} \\
+\hline
+{\em N} & Nombre d’échantillons \\
+\hline
+{\em avg} & Moyennes calculées pour chaque axe \\
+\hline
+{\em var} & Tableau de sortie \mbox{[}3\mbox{]} pour stocker les variances \\
+\hline
+\end{DoxyParams}
