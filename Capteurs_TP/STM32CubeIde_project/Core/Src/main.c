@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "tools.h"
 #include "functions.h"
+#include "compass.h"
 
 /* USER CODE END Includes */
 
@@ -47,7 +48,7 @@ I2C_HandleTypeDef hi2c1;
 UART_HandleTypeDef hlpuart1;
 
 /* USER CODE BEGIN PV */
-
+CompassCalib_t acc_calib;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -113,7 +114,7 @@ int main(void)
 	HAL_UART_Transmit(&hlpuart1, (uint8_t*)"Calibration lite du magnétomètre terminée !\r\n", 49, HAL_MAX_DELAY);
 
 	// === Calibration plus poussée du magnétomètre ===
-	HAL_UART_Transmit(&hlpuart1, (uint8_t*)"\r\nDébut calibration magnétomètre...\r\n", 44, HAL_MAX_DELAY);
+	HAL_UART_Transmit(&hlpuart1, (uint8_t*)"\r\nDébut de la calibration hard & soft iron magnétomètre...\r\n", strlen("\r\nDébut de la calibration hard & soft iron magnétomètre...\r\n"), HAL_MAX_DELAY);
 
 	double mag_bias[3], mag_scale[3];
 	MagCalib(&hi2c1, mag_bias, mag_scale);
@@ -121,12 +122,12 @@ int main(void)
 	// Affichage des résultats de calibration
 	char calib_msg[100];
 	snprintf(calib_msg, sizeof(calib_msg),
-			"\r\nBias: X=%.3f Y=%.3f Z=%.3f\r\nScale: X=%.3f Y=%.3f Z=%.3f\r\n",
+			"\r\nBias: X=%.3f | Y=%.3f | Z=%.3f\r\nScale: X=%.3f | Y=%.3f | Z=%.3f\r\n",
 			mag_bias[0], mag_bias[1], mag_bias[2],
 			mag_scale[0], mag_scale[1], mag_scale[2]);
 	HAL_UART_Transmit(&hlpuart1, (uint8_t*)calib_msg, strlen(calib_msg), HAL_MAX_DELAY);
 
-	HAL_UART_Transmit(&hlpuart1, (uint8_t*)"Calibration terminée", 33, HAL_MAX_DELAY);
+	HAL_UART_Transmit(&hlpuart1,(uint8_t*)"Calibration hard & soft iron terminée", strlen("Calibration hard & soft iron terminée"), HAL_MAX_DELAY);
 
 	// --- Lecture d'une mesure magnétomètre calibrée ---
 	double mag_results[3];
@@ -135,16 +136,18 @@ int main(void)
 	MagMeasureMsgCalib(mag_results, mag_msg, sizeof(mag_msg), mag_bias, mag_scale);
 	HAL_UART_Transmit(&hlpuart1, (uint8_t*)mag_msg, strlen(mag_msg), HAL_MAX_DELAY);
 
-
-	// --- Variables de mesure ---
-	double acc_data[3];
-	double gyro_data[3];
-	double mag_data[3];
-
 	// --- Tests éventuels ---
-	TestAccelSensZ();
-	TestGyroNoise(1000);
+	//TestAccelSensZ();
+	//TestGyroNoise(1000);
 
+
+	// --- Test Calib Mag MATLAB ---
+	/*int N = 500;
+	for (int i=1; i<N; i++) {
+	    MagMeasureMsgCalib(mag_data, mag_msg, sizeof(mag_msg), mag_bias, mag_scale);
+	    HAL_UART_Transmit(&hlpuart1, (uint8_t*)mag_msg, strlen(mag_msg), HAL_MAX_DELAY);
+	    HAL_Delay(100); // 100 ms entre chaque mesure
+	}*/
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -159,18 +162,19 @@ int main(void)
 		char gyro_msg[100];
 		char acc_msg[100];
 		char mag_msg[100];
+		char compass_msg[100];
 
-		// Température
+		double acc_data[3], gyro_data[3], mag_data[3];
+		double roll, pitch, heading;
+
+		// Mesures
 		TempMeasureMsg(temp_msg, sizeof(temp_msg));
-
-		// Gyroscope
 		GyroMeasureMsg(gyro_data, gyro_msg, sizeof(gyro_msg));
-
-		// Accélération
 		AccMeasureMsg(acc_data, acc_msg, sizeof(acc_msg));
-
-		// Champ magnétique
 		MagMeasureMsg(mag_data, mag_msg, sizeof(mag_msg));
+
+		// Boussole compensée
+		 CompassMeasureMsg(acc_data, compass_msg, sizeof(compass_msg), &acc_calib);
 
 		// Transmission UART dans l'ordre désiré
 		HAL_UART_Transmit(&hlpuart1, (uint8_t*)temp_msg, strlen(temp_msg), HAL_MAX_DELAY);
@@ -179,6 +183,15 @@ int main(void)
 		HAL_UART_Transmit(&hlpuart1, (uint8_t*)mag_msg, strlen(mag_msg), HAL_MAX_DELAY);
 
 		HAL_UART_Transmit(&hlpuart1, (uint8_t*)"\r\n", strlen("\r\n"), HAL_MAX_DELAY);
+
+		// Calcul de l'orientation compensée
+		TiltCompensatedCompass(acc_data, mag_data, &roll, &pitch, &heading);
+
+		snprintf(compass_msg, sizeof(compass_msg),
+		         "Roulis=%.2f deg | Tangage=%.2f deg | NordMag=%.2f deg\r\n",
+		         roll, pitch, heading);
+		HAL_UART_Transmit(&hlpuart1, (uint8_t*)compass_msg, strlen(compass_msg), HAL_MAX_DELAY);
+
 
 		HAL_Delay(1000);
 	}

@@ -1,5 +1,6 @@
-Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
+Utils/Src/compass.o: ../Utils/Src/compass.c \
+ C:/Users/kevin/STM32CubeIDE/workspace_1.19.0/G431-MSC-Sensors/Utils/Inc/compass.h \
+ ../Core/Inc/main.h ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h \
@@ -27,10 +28,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
- C:/Users/kevin/STM32CubeIDE/workspace_1.19.0/G431-MSC-Sensors/Utils/Inc/tools.h \
- C:/Users/kevin/STM32CubeIDE/workspace_1.19.0/G431-MSC-Sensors/Utils/Inc/functions.h \
- C:/Users/kevin/STM32CubeIDE/workspace_1.19.0/G431-MSC-Sensors/Utils/Inc/compass.h
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h
+C:/Users/kevin/STM32CubeIDE/workspace_1.19.0/G431-MSC-Sensors/Utils/Inc/compass.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -61,6 +60,3 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
-C:/Users/kevin/STM32CubeIDE/workspace_1.19.0/G431-MSC-Sensors/Utils/Inc/tools.h:
-C:/Users/kevin/STM32CubeIDE/workspace_1.19.0/G431-MSC-Sensors/Utils/Inc/functions.h:
-C:/Users/kevin/STM32CubeIDE/workspace_1.19.0/G431-MSC-Sensors/Utils/Inc/compass.h:

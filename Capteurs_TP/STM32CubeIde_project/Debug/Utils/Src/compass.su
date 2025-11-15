@@ -1,0 +1,3 @@
+../Utils/Src/compass.c:23:6:CompassCalibSinglePoint	16	static
+../Utils/Src/compass.c:49:6:CompassMeasureMsg	104	static
+../Utils/Src/compass.c:85:6:TiltCompensatedCompass	72	static

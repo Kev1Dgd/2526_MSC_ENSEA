@@ -5,14 +5,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Utils/Src/compass.c \
 ../Utils/Src/functions.c \
 ../Utils/Src/tools.c 
 
 OBJS += \
+./Utils/Src/compass.o \
 ./Utils/Src/functions.o \
 ./Utils/Src/tools.o 
 
 C_DEPS += \
+./Utils/Src/compass.d \
 ./Utils/Src/functions.d \
 ./Utils/Src/tools.d 
 
@@ -24,7 +27,7 @@ Utils/Src/%.o Utils/Src/%.su Utils/Src/%.cyclo: ../Utils/Src/%.c Utils/Src/subdi
 clean: clean-Utils-2f-Src
 
 clean-Utils-2f-Src:
-	-$(RM) ./Utils/Src/functions.cyclo ./Utils/Src/functions.d ./Utils/Src/functions.o ./Utils/Src/functions.su ./Utils/Src/tools.cyclo ./Utils/Src/tools.d ./Utils/Src/tools.o ./Utils/Src/tools.su
+	-$(RM) ./Utils/Src/compass.cyclo ./Utils/Src/compass.d ./Utils/Src/compass.o ./Utils/Src/compass.su ./Utils/Src/functions.cyclo ./Utils/Src/functions.d ./Utils/Src/functions.o ./Utils/Src/functions.su ./Utils/Src/tools.cyclo ./Utils/Src/tools.d ./Utils/Src/tools.o ./Utils/Src/tools.su
 
 .PHONY: clean-Utils-2f-Src
 
