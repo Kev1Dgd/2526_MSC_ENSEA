@@ -20,7 +20,7 @@ Ce projet a pour objectif de mettre en pratique les concepts de capteurs et syst
 
 ## 📚 Documentation
 
-La documentation Doxygen est disponible [ici](./STM32CubeIde_projet/html/index.html) 🌐
+La documentation Doxygen est disponible [ici](./STM32CubeIde_project/html/index.html) 🌐
 Elle contient :
 
 * Description des fichiers sources (`main.c`, `functions.c`, `functions.h`, `compass.c`, `compass.h`)
