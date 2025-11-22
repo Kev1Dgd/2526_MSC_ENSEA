@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['svc_5fhandler_0',['SVC_Handler',['../stm32g4xx__it_8c.html#a3e5ddb3df0d62f2dc357e64a3f04a6ce',1,'SVC_Handler(void):&#160;stm32g4xx_it.c'],['../stm32g4xx__it_8h.html#a3e5ddb3df0d62f2dc357e64a3f04a6ce',1,'SVC_Handler(void):&#160;stm32g4xx_it.c']]],
-  ['systemclock_5fconfig_1',['SystemClock_Config',['../main_8c.html#a70af21c671abfcc773614a9a4f63d920',1,'main.c']]],
-  ['systemcoreclockupdate_2',['SystemCoreClockUpdate',['../group___s_t_m32_g4xx___system___private___functions.html#gae0c36a9591fe6e9c45ecb21a794f0f0f',1,'system_stm32g4xx.c']]],
-  ['systeminit_3',['SystemInit',['../group___s_t_m32_g4xx___system___private___functions.html#ga93f514700ccf00d08dbdcff7f1224eb2',1,'system_stm32g4xx.c']]],
-  ['systick_5fhandler_4',['SysTick_Handler',['../stm32g4xx__it_8c.html#ab5e09814056d617c521549e542639b7e',1,'SysTick_Handler(void):&#160;stm32g4xx_it.c'],['../stm32g4xx__it_8h.html#ab5e09814056d617c521549e542639b7e',1,'SysTick_Handler(void):&#160;stm32g4xx_it.c']]]
+  ['readaccelsensitivity_0',['ReadAccelSensitivity',['../functions_8c.html#a794bd96d13565b881a5c75f01f15f24c',1,'ReadAccelSensitivity(void):&#160;functions.c'],['../functions_8h.html#a794bd96d13565b881a5c75f01f15f24c',1,'ReadAccelSensitivity(void):&#160;functions.c']]],
+  ['readgyro_1',['ReadGyro',['../functions_8c.html#af59b758cf9be11003885a8d7fdfc0a29',1,'ReadGyro(float *gx, float *gy, float *gz):&#160;functions.c'],['../functions_8h.html#af59b758cf9be11003885a8d7fdfc0a29',1,'ReadGyro(float *gx, float *gy, float *gz):&#160;functions.c']]],
+  ['readgyrosensitivity_2',['ReadGyroSensitivity',['../functions_8c.html#a4de4adaa21486f401e0492bbb6448b28',1,'ReadGyroSensitivity(void):&#160;functions.c'],['../functions_8h.html#a4de4adaa21486f401e0492bbb6448b28',1,'ReadGyroSensitivity(void):&#160;functions.c']]],
+  ['readmag_3',['ReadMag',['../functions_8c.html#a3d8a5815f4baf803e29e0cc674fd948c',1,'ReadMag(float *mx, float *my, float *mz):&#160;functions.c'],['../functions_8h.html#a3d8a5815f4baf803e29e0cc674fd948c',1,'ReadMag(float *mx, float *my, float *mz):&#160;functions.c']]],
+  ['readmagsensitivity_4',['ReadMagSensitivity',['../functions_8c.html#a8fdc8ed94ae5bc0de87a2615a40d48fa',1,'ReadMagSensitivity(uint8_t bit16_mode):&#160;functions.c'],['../functions_8h.html#a8fdc8ed94ae5bc0de87a2615a40d48fa',1,'ReadMagSensitivity(uint8_t bit16_mode):&#160;functions.c']]],
+  ['readoffsetgyro_5',['ReadOffsetGyro',['../functions_8c.html#ae557576c323413660d4333b59ab29c47',1,'ReadOffsetGyro(void):&#160;functions.c'],['../functions_8h.html#ae557576c323413660d4333b59ab29c47',1,'ReadOffsetGyro(void):&#160;functions.c']]]
 ];

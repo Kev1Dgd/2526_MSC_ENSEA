@@ -47,6 +47,8 @@ I2C_HandleTypeDef hi2c1;
 
 UART_HandleTypeDef hlpuart1;
 
+TIM_HandleTypeDef htim2;
+
 /* USER CODE BEGIN PV */
 CompassCalib_t acc_calib;
 /* USER CODE END PV */
@@ -56,6 +58,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_LPUART1_UART_Init(void);
+static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -96,6 +99,7 @@ int main(void)
 	MX_GPIO_Init();
 	MX_I2C1_Init();
 	MX_LPUART1_UART_Init();
+	MX_TIM2_Init();
 	/* USER CODE BEGIN 2 */
 	setup();
 
@@ -127,7 +131,7 @@ int main(void)
 			mag_scale[0], mag_scale[1], mag_scale[2]);
 	HAL_UART_Transmit(&hlpuart1, (uint8_t*)calib_msg, strlen(calib_msg), HAL_MAX_DELAY);
 
-	HAL_UART_Transmit(&hlpuart1,(uint8_t*)"Calibration hard & soft iron terminée", strlen("Calibration hard & soft iron terminée"), HAL_MAX_DELAY);
+	HAL_UART_Transmit(&hlpuart1,(uint8_t*)"Calibration hard & soft iron terminée\r\n", strlen("Calibration hard & soft iron terminée\r\n"), HAL_MAX_DELAY);
 
 	// --- Lecture d'une mesure magnétomètre calibrée ---
 	double mag_results[3];
@@ -135,6 +139,10 @@ int main(void)
 
 	MagMeasureMsgCalib(mag_results, mag_msg, sizeof(mag_msg), mag_bias, mag_scale);
 	HAL_UART_Transmit(&hlpuart1, (uint8_t*)mag_msg, strlen(mag_msg), HAL_MAX_DELAY);
+
+	// Demarrage du Timer
+	HAL_TIM_Base_Start_IT(&htim2);
+	HAL_UART_Transmit(&hlpuart1, (uint8_t*)"Timer 100 Hz démarré\r\n", 26, HAL_MAX_DELAY);
 
 	// --- Tests éventuels ---
 	//TestAccelSensZ();
@@ -144,6 +152,7 @@ int main(void)
 	// --- Test Calib Mag MATLAB ---
 	/*int N = 500;
 	for (int i=1; i<N; i++) {
+		double  mag_data[3];
 	    MagMeasureMsgCalib(mag_data, mag_msg, sizeof(mag_msg), mag_bias, mag_scale);
 	    HAL_UART_Transmit(&hlpuart1, (uint8_t*)mag_msg, strlen(mag_msg), HAL_MAX_DELAY);
 	    HAL_Delay(100); // 100 ms entre chaque mesure
@@ -165,33 +174,40 @@ int main(void)
 		char compass_msg[100];
 
 		double acc_data[3], gyro_data[3], mag_data[3];
-		double roll, pitch, heading;
+		double roll = 0, pitch = 0, heading = 0;
 
 		// Mesures
 		TempMeasureMsg(temp_msg, sizeof(temp_msg));
 		GyroMeasureMsg(gyro_data, gyro_msg, sizeof(gyro_msg));
 		AccMeasureMsg(acc_data, acc_msg, sizeof(acc_msg));
-		MagMeasureMsg(mag_data, mag_msg, sizeof(mag_msg));
+		MagMeasureMsgCalib(mag_data, mag_msg, sizeof(mag_msg), mag_bias, mag_scale);
 
 		// Boussole compensée
-		 CompassMeasureMsg(acc_data, compass_msg, sizeof(compass_msg), &acc_calib);
+		CompassMeasureMsg(acc_data, compass_msg, sizeof(compass_msg), &acc_calib);
 
 		// Transmission UART dans l'ordre désiré
 		HAL_UART_Transmit(&hlpuart1, (uint8_t*)temp_msg, strlen(temp_msg), HAL_MAX_DELAY);
 		HAL_UART_Transmit(&hlpuart1, (uint8_t*)gyro_msg, strlen(gyro_msg), HAL_MAX_DELAY);
 		HAL_UART_Transmit(&hlpuart1, (uint8_t*)acc_msg, strlen(acc_msg), HAL_MAX_DELAY);
 		HAL_UART_Transmit(&hlpuart1, (uint8_t*)mag_msg, strlen(mag_msg), HAL_MAX_DELAY);
-
 		HAL_UART_Transmit(&hlpuart1, (uint8_t*)"\r\n", strlen("\r\n"), HAL_MAX_DELAY);
 
 		// Calcul de l'orientation compensée
-		TiltCompensatedCompass(acc_data, mag_data, &roll, &pitch, &heading);
-
-		snprintf(compass_msg, sizeof(compass_msg),
-		         "Roulis=%.2f deg | Tangage=%.2f deg | NordMag=%.2f deg\r\n",
-		         roll, pitch, heading);
 		HAL_UART_Transmit(&hlpuart1, (uint8_t*)compass_msg, strlen(compass_msg), HAL_MAX_DELAY);
 
+		TiltCompensatedCompass(acc_data, mag_data, &roll, &pitch, &heading);
+		snprintf(compass_msg, sizeof(compass_msg),
+				"Roulis = %.2f deg | Tangage = %.2f deg | NordMag = %.2f deg\r\n",
+				roll, pitch, heading);
+		HAL_UART_Transmit(&hlpuart1, (uint8_t*)compass_msg, strlen(compass_msg), HAL_MAX_DELAY);
+
+		TiltCompensatedCompassAngles(acc_data, mag_data, &roll, &pitch, &heading);
+		snprintf(compass_msg, sizeof(compass_msg),
+				"Roulis amélioré = %.2f deg | Tangage amélioré = %.2f deg | NordMag amélioré = %.2f deg\r\n",
+				roll, pitch, heading);
+		HAL_UART_Transmit(&hlpuart1, (uint8_t*)compass_msg, strlen(compass_msg), HAL_MAX_DELAY);
+
+		HAL_UART_Transmit(&hlpuart1, "\r\n===============================\r\n", strlen("\r\n================================\r\n"), HAL_MAX_DELAY);
 
 		HAL_Delay(1000);
 	}
@@ -336,6 +352,51 @@ static void MX_LPUART1_UART_Init(void)
 	/* USER CODE BEGIN LPUART1_Init 2 */
 
 	/* USER CODE END LPUART1_Init 2 */
+
+}
+
+/**
+ * @brief TIM2 Initialization Function
+ * @param None
+ * @retval None
+ */
+static void MX_TIM2_Init(void)
+{
+
+	/* USER CODE BEGIN TIM2_Init 0 */
+
+	/* USER CODE END TIM2_Init 0 */
+
+	TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+	TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+	/* USER CODE BEGIN TIM2_Init 1 */
+
+	/* USER CODE END TIM2_Init 1 */
+	htim2.Instance = TIM2;
+	htim2.Init.Prescaler = 17000-1;
+	htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+	htim2.Init.Period = 99;
+	htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+	htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+	if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+	{
+		Error_Handler();
+	}
+	sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+	if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+	{
+		Error_Handler();
+	}
+	sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+	sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+	if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+	{
+		Error_Handler();
+	}
+	/* USER CODE BEGIN TIM2_Init 2 */
+
+	/* USER CODE END TIM2_Init 2 */
 
 }
 

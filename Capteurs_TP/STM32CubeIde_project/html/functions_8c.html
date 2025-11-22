@@ -95,28 +95,14 @@ $(function(){initNavTree('functions_8c.html','',''); });
 <p>Fonctions de gestion du capteur MPU-9250 (IMU 9 axes).  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="functions_8h_source.html">functions.h</a>&quot;</code><br />
-<code>#include &quot;tools.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="tools_8h_source.html">tools.h</a>&quot;</code><br />
 <code>#include &quot;stm32g4xx_hal.h&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
 <code>#include &lt;float.h&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for functions.c:</div>
-<div class="dyncontent">
-<div class="center"><img src="functions_8c__incl.png" border="0" usemap="#a_utils_2_src_2functions_8c" loading="lazy" alt=""/></div>
-</div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:af4d54e584a662662888836b3a9b9eb08" id="r_af4d54e584a662662888836b3a9b9eb08"><td class="memItemLeft" align="right" valign="top"><a id="af4d54e584a662662888836b3a9b9eb08" name="af4d54e584a662662888836b3a9b9eb08"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MPU9250_ADDRESS</b>&#160;&#160;&#160;0x68 &lt;&lt; 1</td></tr>
-<tr class="memitem:ab4872458d4e7d50cdfa1fb8b30f015c7" id="r_ab4872458d4e7d50cdfa1fb8b30f015c7"><td class="memItemLeft" align="right" valign="top"><a id="ab4872458d4e7d50cdfa1fb8b30f015c7" name="ab4872458d4e7d50cdfa1fb8b30f015c7"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CALIB_SAMPLES</b>&#160;&#160;&#160;300</td></tr>
-<tr class="memitem:a23c40184a8678f9c5feab712d45d6ee2" id="r_a23c40184a8678f9c5feab712d45d6ee2"><td class="memItemLeft" align="right" valign="top"><a id="a23c40184a8678f9c5feab712d45d6ee2" name="a23c40184a8678f9c5feab712d45d6ee2"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CALIB_DELAY_MS</b>&#160;&#160;&#160;50</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a1730ffe1e560465665eb47d9264826f9" id="r_a1730ffe1e560465665eb47d9264826f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a> (void)</td></tr>
@@ -706,7 +692,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>message</b> [100]<
 </div><div class="memdoc">
 
 <p>Mesure le champ magnétique corrigé par calibration (hard + soft iron). </p>
-<p>Cette fonction applique les offsets (hard iron) et les coefficients de correction (soft iron) calculés lors de <a class="el" href="#adcd7555662d0c7cc435ff47a30af3ba4" title="Calibre le magnétomètre pour compenser les hard iron et soft iron biases.">MagCalib()</a>.</p>
+<p>Cette fonction applique les offsets (hard iron) et les coefficients de correction (soft iron) calculés lors de <a class="el" href="#adcd7555662d0c7cc435ff47a30af3ba4" title="Calibre le magnétomètre pour compenser les hard iron et soft iron biases.">MagCalib()</a>. Puis elle affiche dans la commande les valeurs brutes et celles calibrées.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mag_data</td><td>Pointeur vers un tableau de 3 doubles [Bx, By, Bz] (µT) </td></tr>

@@ -7,10 +7,21 @@ En-\/têtes des fonctions de gestion du MPU-\/9250.
 
 {\ttfamily \#include "{}stm32g4xx\+\_\+hal.\+h"{}}\newline
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
-Include dependency graph for functions.\+h\+:
-% FIG 0
-This graph shows which files directly or indirectly include this file\+:
-% FIG 1
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{functions_8h_af4d54e584a662662888836b3a9b9eb08}\label{functions_8h_af4d54e584a662662888836b3a9b9eb08} 
+\#define {\bfseries MPU9250\+\_\+\+ADDRESS}~0x68 $<$$<$ 1
+\item 
+\Hypertarget{functions_8h_a3cb24f09004f92185b77e9e7bac6ea61}\label{functions_8h_a3cb24f09004f92185b77e9e7bac6ea61} 
+\#define {\bfseries TEMP\+\_\+\+OFFSET}~17
+\item 
+\Hypertarget{functions_8h_a8c010d725cec988e94ce4c4352f91022}\label{functions_8h_a8c010d725cec988e94ce4c4352f91022} 
+\#define {\bfseries CALIB\+\_\+\+MAG\+\_\+\+SAMPLES}~300
+\item 
+\Hypertarget{functions_8h_ab129188a70c9e35284953e6f892b56b1}\label{functions_8h_ab129188a70c9e35284953e6f892b56b1} 
+\#define {\bfseries CALIB\+\_\+\+MAG\+\_\+\+DELAY\+\_\+\+MS}~50
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -339,7 +350,7 @@ void Mag\+Measure\+Msg\+Calib (\begin{DoxyParamCaption}\item[{double \texorpdfst
 
 Mesure le champ magnétique corrigé par calibration (hard + soft iron). 
 
-Cette fonction applique les offsets (hard iron) et les coefficients de correction (soft iron) calculés lors de \doxylink{functions_8c_adcd7555662d0c7cc435ff47a30af3ba4}{Mag\+Calib()}.
+Cette fonction applique les offsets (hard iron) et les coefficients de correction (soft iron) calculés lors de \doxylink{functions_8c_adcd7555662d0c7cc435ff47a30af3ba4}{Mag\+Calib()}. Puis elle affiche dans la commande les valeurs brutes et celles calibrées.
 
 
 \begin{DoxyParams}{Parameters}

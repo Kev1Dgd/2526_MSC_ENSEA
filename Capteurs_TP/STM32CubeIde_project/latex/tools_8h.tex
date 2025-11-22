@@ -1,0 +1,44 @@
+\doxysection{Utils/\+Inc/tools.h File Reference}
+\hypertarget{tools_8h}{}\label{tools_8h}\index{Utils/Inc/tools.h@{Utils/Inc/tools.h}}
+
+
+En-\/têtes des fonctions de tout début de projet.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}stm32g4xx\+\_\+hal.\+h"{}}\newline
+{\ttfamily \#include "{}stm32g4xx\+\_\+hal\+\_\+gpio.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{tools_8h_a4fc01d736fe50cf5b977f755b675f11d}\label{tools_8h_a4fc01d736fe50cf5b977f755b675f11d} 
+void {\bfseries setup} ()
+\begin{DoxyCompactList}\small\item\em Initialisation UART + message d’accueil. Affiche un message de bienvenue sur le terminal série et prépare l’environnement de test. \end{DoxyCompactList}\item 
+\Hypertarget{tools_8h_afe461d27b9c48d5921c00d521181f12f}\label{tools_8h_afe461d27b9c48d5921c00d521181f12f} 
+void {\bfseries loop} ()
+\begin{DoxyCompactList}\small\item\em Boucle principale \+: clignotement LED + affichage compteur UART. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tools_8h_a6f9f9262f2bc6813226d3cb1785fd3b4}{test\+\_\+\+LED}} (void)
+\begin{DoxyCompactList}\small\item\em Test du fonctionnement des LEDs verte et rouge. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+En-\/têtes des fonctions de tout début de projet. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{tools_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{tools_8h_a6f9f9262f2bc6813226d3cb1785fd3b4}\index{tools.h@{tools.h}!test\_LED@{test\_LED}}
+\index{test\_LED@{test\_LED}!tools.h@{tools.h}}
+\doxysubsubsection{\texorpdfstring{test\_LED()}{test\_LED()}}
+{\footnotesize\ttfamily \label{tools_8h_a6f9f9262f2bc6813226d3cb1785fd3b4} 
+void test\+\_\+\+LED (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Test du fonctionnement des LEDs verte et rouge. 
+
+Allume la LED pendant 1 seconde puis l\textquotesingle{}éteint. Permet de vérifier la configuration GPIO et la fonction HAL\+\_\+\+Delay. 

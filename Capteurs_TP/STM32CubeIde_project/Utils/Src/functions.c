@@ -21,9 +21,6 @@ extern uint8_t message[100];
 extern void Error_Handler(void);
 extern void MagMeasureMsg(double *mag_data, char *buffer, size_t size);
 
-#define MPU9250_ADDRESS  0x68 << 1
-
-
 // ==== Initialisation ==== \\
 
 
@@ -145,11 +142,12 @@ double TempMeasureMsg(char *buffer, size_t size) {
 		Error_Handler();
 
 	raw = (int16_t)((data[0]<<8)|data[1]);
-	temperature = ((double)raw)/333.87 + 21.0;
+	temperature = ((double)raw - TEMP_OFFSET)/333.87 + 21.0;
 
 	int temp_int = (int)temperature;
 	int temp_frac = (int)((temperature - temp_int)*100);
 	if(temp_frac<0) temp_frac=-temp_frac;
+	temp_int -= 5; // Mesure expérimentale
 
 	snprintf(buffer, size, "\r\nTemperature = %d.%02d °C\r\n", temp_int, temp_frac);
 	return temperature;
@@ -639,7 +637,6 @@ void GyrCalib(uint16_t N) {
 	HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 
 	// --- Conversion en valeurs brutes ---
-	float sensitivity = 131.0f; // ±250°/s par défaut
 	int16_t off_x = (int16_t)(-avg[0]);
 	int16_t off_y = (int16_t)(-avg[1]);
 	int16_t off_z = (int16_t)(-avg[2]);
@@ -745,11 +742,11 @@ void ReadMag(float *mx, float *my, float *mz) {
 	}
 
 	// Attendre que les données soient prêtes (ST1.DRDY)
-	uint8_t st1;
+	/*uint8_t st1;
 	do {
 		if (HAL_I2C_Mem_Read(&hi2c1, 0x0C << 1, 0x02, 1, &st1, 1, HAL_MAX_DELAY) != HAL_OK)
 			Error_Handler();
-	} while (!(st1 & 0x01));
+	} while (!(st1 & 0x01));*/
 
 	// Lecture des registres HXL à HZH
 	if (HAL_I2C_Mem_Read(&hi2c1, 0x0C << 1, 0x03, 1, raw, 7, HAL_MAX_DELAY) != HAL_OK)
@@ -788,7 +785,7 @@ void MagAcquireSamples(float *Bx, float *By, float *Bz, uint16_t N, uint16_t del
 {
 	for(uint16_t i=0; i<N; i++)
 	{
-		double mag[3];
+		float mag[3];
 		ReadMag(&mag[0], &mag[1], &mag[2]);
 
 		Bx[i] = (float)mag[0];
@@ -867,14 +864,13 @@ void MagCalibLite(uint16_t N, uint16_t delay_ms)
  * @note   Utilise ReadMag() pour ne pas afficher de messages UART inutiles.
  */
 void MagCalib(I2C_HandleTypeDef *hi2c, double mag_bias[3], double mag_scale[3]){
-#define CALIB_SAMPLES 300
-#define CALIB_DELAY_MS 50
+
 
 	double Bx_min =  DBL_MAX, Bx_max = -DBL_MAX;
 	double By_min =  DBL_MAX, By_max = -DBL_MAX;
 	double Bz_min =  DBL_MAX, Bz_max = -DBL_MAX;
 
-	for(uint16_t i = 0; i < CALIB_SAMPLES; i++)
+	for(uint16_t i = 0; i < CALIB_MAG_SAMPLES; i++)
 	{
 		float mx, my, mz;
 		ReadMag(&mx, &my, &mz);  // lecture sans UART
@@ -888,10 +884,10 @@ void MagCalib(I2C_HandleTypeDef *hi2c, double mag_bias[3], double mag_scale[3]){
 		if(mz < Bz_min) Bz_min = mz;
 		if(mz > Bz_max) Bz_max = mz;
 
-		HAL_Delay(CALIB_DELAY_MS);
+		HAL_Delay(CALIB_MAG_DELAY_MS);
 	}
 
-	// offsets (hard iron)
+	// offsets / bias (hard iron)
 	mag_bias[0] = (Bx_max + Bx_min) / 2.0;
 	mag_bias[1] = (By_max + By_min) / 2.0;
 	mag_bias[2] = (Bz_max + Bz_min) / 2.0;
@@ -956,11 +952,12 @@ void MagMeasureMsgCalib(double *mag_data, char *buffer, size_t size,
 	{
 		memset(buffer, 0, size);
 		snprintf(buffer, size,
-				"\r\nCalib Mag (µT): X=%.2f | Y=%.2f | Z=%.2f \r\n||B|| = %.2f µT\r\n",
+				"Calib Mag (µT): X=%.2f | Y=%.2f | Z=%.2f \r\n||B|| = %.2f µT\r\n",
 				mx, my, mz, norm);
-		/*snprintf(buffer, size,   POUR LE TRUC AVEC LE 8
-                         "\r\n%.2f, %.2f, %.2f",
-                         mx, my, mz, norm);*/
+		// Affichage pour MATLAB
+		/*snprintf(buffer, size,
+				"\r\n%.2f, %.2f, %.2f",
+				mx, my, mz);*/
 	}
 }
 

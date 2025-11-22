@@ -9,4 +9,6 @@ digraph "Utils/Inc"
     graph [ bgcolor="#edf0f7", pencolor="grey25", label="Utils", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_0a824aa1f70ce3b829ef378253b085da.html",tooltip=""]
   dir_b2284ca12447642565892791c9876985 [label="Inc", fillcolor="#edf0f7", color="grey25", style="filled,bold", URL="dir_b2284ca12447642565892791c9876985.html",tooltip=""];
   }
+  dir_c6310732a22f63c0c2fc5595561e68f1 [label="Core", fillcolor="#edf0f7", color="red", style="filled", URL="dir_c6310732a22f63c0c2fc5595561e68f1.html",tooltip=""];
+  dir_b2284ca12447642565892791c9876985->dir_c6310732a22f63c0c2fc5595561e68f1 [headlabel="1", labeldistance=1.5 headhref="dir_000002_000000.html" href="dir_000002_000000.html" color="steelblue1" fontcolor="steelblue1"];
 }

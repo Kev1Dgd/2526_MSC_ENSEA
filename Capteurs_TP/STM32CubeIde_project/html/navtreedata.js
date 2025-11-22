@@ -26,11 +26,16 @@ var NAVTREE =
 [
   [ "G431-MSC-Sensors_Flandin&Dugard", "index.html", [
     [ "Topics", "topics.html", "topics" ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ]
+    ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -39,7 +44,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"dir_0a824aa1f70ce3b829ef378253b085da.html"
+"annotated.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

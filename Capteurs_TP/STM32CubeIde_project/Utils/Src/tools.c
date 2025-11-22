@@ -5,29 +5,36 @@
  *      Author: Nicolas SIMOND
  */
 
+/**
+ * @file tools.c
+ * @brief Fonctions servant au tout début du projet
+ * @author Nicolas SIMOND
+ * @date Novembre 2025
+ */
+
 
 #include "tools.h"
 #include "string.h"
 #include "stdio.h"
 
-/* === Définition des broches === */
+// === Définition des broches ===
 #define LED_G_PORT      GPIOA
 #define LED_G_PIN       GPIO_PIN_5    // LED verte Nucleo
 #define BTN_PORT        GPIOC
 #define BTN_PIN         GPIO_PIN_13   // Bouton bleu B1
 #define ACTIVE_LOW      0             // 0 si le bouton est actif-haut, 1 sinon
 
-/* === Déclarations externes === */
+// === Déclarations externes ===
 extern UART_HandleTypeDef hlpuart1;  // UART pour le terminal
 extern I2C_HandleTypeDef hi2c1;      // Bus I2C utilisé
 
-/* === Variables globales === */
+// === Variables globales ===
 uint8_t prompt[15] = "\nSTM32G431 >> ";
 uint8_t message[100];
 uint8_t foundAddresses[128];  // tableau pour stocker les périphériques détectés
 uint8_t foundCount = 0;
 
-/* === Lecture de l’état du bouton === */
+// === Lecture de l’état du bouton ===
 static inline uint8_t button_is_pressed(void) {
     GPIO_PinState s = HAL_GPIO_ReadPin(BTN_PORT, BTN_PIN);
 #if ACTIVE_LOW

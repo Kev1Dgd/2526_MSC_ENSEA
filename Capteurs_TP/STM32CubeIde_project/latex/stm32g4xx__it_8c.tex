@@ -7,8 +7,6 @@ Interrupt Service Routines.
 
 {\ttfamily \#include "{}main.\+h"{}}\newline
 {\ttfamily \#include "{}stm32g4xx\+\_\+it.\+h"{}}\newline
-Include dependency graph for stm32g4xx\+\_\+it.\+c\+:
-% FIG 0
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -38,7 +36,16 @@ void {\bfseries Pend\+SV\+\_\+\+Handler} (void)
 \begin{DoxyCompactList}\small\item\em This function handles Pendable request for system service. \end{DoxyCompactList}\item 
 \Hypertarget{stm32g4xx__it_8c_ab5e09814056d617c521549e542639b7e}\label{stm32g4xx__it_8c_ab5e09814056d617c521549e542639b7e} 
 void {\bfseries Sys\+Tick\+\_\+\+Handler} (void)
-\begin{DoxyCompactList}\small\item\em This function handles System tick timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This function handles System tick timer. \end{DoxyCompactList}\item 
+\Hypertarget{stm32g4xx__it_8c_a38ad4725462bdc5e86c4ead4f04b9fc2}\label{stm32g4xx__it_8c_a38ad4725462bdc5e86c4ead4f04b9fc2} 
+void {\bfseries TIM2\+\_\+\+IRQHandler} (void)
+\begin{DoxyCompactList}\small\item\em This function handles TIM2 global interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{stm32g4xx__it_8c_a2c80fd5510e2990a59a5c90d745c716c}\label{stm32g4xx__it_8c_a2c80fd5510e2990a59a5c90d745c716c} 
+TIM\+\_\+\+Handle\+Type\+Def {\bfseries htim2}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

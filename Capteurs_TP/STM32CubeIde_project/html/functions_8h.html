@@ -96,19 +96,20 @@ $(function(){initNavTree('functions_8h.html','',''); });
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;stm32g4xx_hal.h&quot;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for functions.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="functions_8h__incl.png" border="0" usemap="#a_utils_2_inc_2functions_8h" loading="lazy" alt=""/></div>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="functions_8h__dep__incl.png" border="0" usemap="#a_utils_2_inc_2functions_8hdep" loading="lazy" alt=""/></div>
-</div>
 </div>
 <p><a href="functions_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:af4d54e584a662662888836b3a9b9eb08" id="r_af4d54e584a662662888836b3a9b9eb08"><td class="memItemLeft" align="right" valign="top"><a id="af4d54e584a662662888836b3a9b9eb08" name="af4d54e584a662662888836b3a9b9eb08"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MPU9250_ADDRESS</b>&#160;&#160;&#160;0x68 &lt;&lt; 1</td></tr>
+<tr class="memitem:a3cb24f09004f92185b77e9e7bac6ea61" id="r_a3cb24f09004f92185b77e9e7bac6ea61"><td class="memItemLeft" align="right" valign="top"><a id="a3cb24f09004f92185b77e9e7bac6ea61" name="a3cb24f09004f92185b77e9e7bac6ea61"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TEMP_OFFSET</b>&#160;&#160;&#160;17</td></tr>
+<tr class="memitem:a8c010d725cec988e94ce4c4352f91022" id="r_a8c010d725cec988e94ce4c4352f91022"><td class="memItemLeft" align="right" valign="top"><a id="a8c010d725cec988e94ce4c4352f91022" name="a8c010d725cec988e94ce4c4352f91022"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CALIB_MAG_SAMPLES</b>&#160;&#160;&#160;300</td></tr>
+<tr class="memitem:ab129188a70c9e35284953e6f892b56b1" id="r_ab129188a70c9e35284953e6f892b56b1"><td class="memItemLeft" align="right" valign="top"><a id="ab129188a70c9e35284953e6f892b56b1" name="ab129188a70c9e35284953e6f892b56b1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CALIB_MAG_DELAY_MS</b>&#160;&#160;&#160;50</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a475cbe44faa4392214446b640c68dba6" id="r_a475cbe44faa4392214446b640c68dba6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a475cbe44faa4392214446b640c68dba6">checkMPU9250_ID</a> (void)</td></tr>
@@ -644,7 +645,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetGyroBandwidth</b> 
 </div><div class="memdoc">
 
 <p>Mesure le champ magnétique corrigé par calibration (hard + soft iron). </p>
-<p>Cette fonction applique les offsets (hard iron) et les coefficients de correction (soft iron) calculés lors de <a class="el" href="functions_8c.html#adcd7555662d0c7cc435ff47a30af3ba4" title="Calibre le magnétomètre pour compenser les hard iron et soft iron biases.">MagCalib()</a>.</p>
+<p>Cette fonction applique les offsets (hard iron) et les coefficients de correction (soft iron) calculés lors de <a class="el" href="functions_8c.html#adcd7555662d0c7cc435ff47a30af3ba4" title="Calibre le magnétomètre pour compenser les hard iron et soft iron biases.">MagCalib()</a>. Puis elle affiche dans la commande les valeurs brutes et celles calibrées.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mag_data</td><td>Pointeur vers un tableau de 3 doubles [Bx, By, Bz] (µT) </td></tr>

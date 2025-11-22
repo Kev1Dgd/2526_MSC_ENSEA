@@ -1,9 +1,16 @@
 var searchData=
 [
   ['tempmeasuremsg_0',['TempMeasureMsg',['../functions_8c.html#a609d60e69c330bb07da90fe52c696012',1,'TempMeasureMsg(char *buffer, size_t size):&#160;functions.c'],['../functions_8h.html#a609d60e69c330bb07da90fe52c696012',1,'TempMeasureMsg(char *buffer, size_t size):&#160;functions.c']]],
-  ['testaccelsensz_1',['TestAccelSensZ',['../functions_8c.html#abc76685afe611a4f3d376492999d1a18',1,'TestAccelSensZ(void):&#160;functions.c'],['../functions_8h.html#abc76685afe611a4f3d376492999d1a18',1,'TestAccelSensZ(void):&#160;functions.c']]],
-  ['testgyronoise_2',['TestGyroNoise',['../functions_8c.html#a156dae4b02548e795db916a83c2e42c6',1,'TestGyroNoise(uint16_t nb_samples):&#160;functions.c'],['../functions_8h.html#a156dae4b02548e795db916a83c2e42c6',1,'TestGyroNoise(uint16_t nb_samples):&#160;functions.c']]],
-  ['the_20system_20clock_20as_20follows_3a_3',['This file configures the system clock as follows:',['../system__stm32g4xx_8c.html#autotoc_md0',1,'']]],
-  ['this_20file_20configures_20the_20system_20clock_20as_20follows_3a_4',['This file configures the system clock as follows:',['../system__stm32g4xx_8c.html#autotoc_md0',1,'']]],
-  ['tick_5fint_5fpriority_5',['TICK_INT_PRIORITY',['../stm32g4xx__hal__conf_8h.html#ae27809d4959b9fd5b5d974e3e1c77d2e',1,'stm32g4xx_hal_conf.h']]]
+  ['test_5fled_1',['test_LED',['../tools_8c.html#a6f9f9262f2bc6813226d3cb1785fd3b4',1,'test_LED(void):&#160;tools.c'],['../tools_8h.html#a6f9f9262f2bc6813226d3cb1785fd3b4',1,'test_LED(void):&#160;tools.c']]],
+  ['testaccelsensz_2',['TestAccelSensZ',['../functions_8c.html#abc76685afe611a4f3d376492999d1a18',1,'TestAccelSensZ(void):&#160;functions.c'],['../functions_8h.html#abc76685afe611a4f3d376492999d1a18',1,'TestAccelSensZ(void):&#160;functions.c']]],
+  ['testgyronoise_3',['TestGyroNoise',['../functions_8c.html#a156dae4b02548e795db916a83c2e42c6',1,'TestGyroNoise(uint16_t nb_samples):&#160;functions.c'],['../functions_8h.html#a156dae4b02548e795db916a83c2e42c6',1,'TestGyroNoise(uint16_t nb_samples):&#160;functions.c']]],
+  ['the_20system_20clock_20as_20follows_3a_4',['This file configures the system clock as follows:',['../system__stm32g4xx_8c.html#autotoc_md0',1,'']]],
+  ['this_20file_20configures_20the_20system_20clock_20as_20follows_3a_5',['This file configures the system clock as follows:',['../system__stm32g4xx_8c.html#autotoc_md0',1,'']]],
+  ['tick_5fint_5fpriority_6',['TICK_INT_PRIORITY',['../stm32g4xx__hal__conf_8h.html#ae27809d4959b9fd5b5d974e3e1c77d2e',1,'stm32g4xx_hal_conf.h']]],
+  ['tiltcompensatedcompass_7',['TiltCompensatedCompass',['../compass_8c.html#aaebabb58f38272b70c182194ab68ceb2',1,'TiltCompensatedCompass(const double acc[3], const double mag[3], double *roll, double *pitch, double *heading):&#160;compass.c'],['../compass_8h.html#aaebabb58f38272b70c182194ab68ceb2',1,'TiltCompensatedCompass(const double acc[3], const double mag[3], double *roll, double *pitch, double *heading):&#160;compass.c']]],
+  ['tiltcompensatedcompassangles_8',['TiltCompensatedCompassAngles',['../compass_8c.html#abbc9806afc9a6c4836f461b98f8801f1',1,'TiltCompensatedCompassAngles(const double acc[3], const double mag[3], double *roll, double *pitch, double *heading):&#160;compass.c'],['../compass_8h.html#abbc9806afc9a6c4836f461b98f8801f1',1,'TiltCompensatedCompassAngles(const double acc[3], const double mag[3], double *roll, double *pitch, double *heading):&#160;compass.c']]],
+  ['tiltcompensatedcomplementary_9',['TiltCompensatedComplementary',['../compass_8c.html#a9de9be13b1e645650822466326783a14',1,'TiltCompensatedComplementary(const double acc[3], const double gyro_rates[3], const double mag[3], double *roll, double *pitch, double *heading):&#160;compass.c'],['../compass_8h.html#a9de9be13b1e645650822466326783a14',1,'TiltCompensatedComplementary(const double acc[3], const double gyro_rates[3], const double mag[3], double *roll, double *pitch, double *heading):&#160;compass.c']]],
+  ['tim2_5firqhandler_10',['TIM2_IRQHandler',['../stm32g4xx__it_8c.html#a38ad4725462bdc5e86c4ead4f04b9fc2',1,'TIM2_IRQHandler(void):&#160;stm32g4xx_it.c'],['../stm32g4xx__it_8h.html#a38ad4725462bdc5e86c4ead4f04b9fc2',1,'TIM2_IRQHandler(void):&#160;stm32g4xx_it.c']]],
+  ['tools_2ec_11',['tools.c',['../tools_8c.html',1,'']]],
+  ['tools_2eh_12',['tools.h',['../tools_8h.html',1,'']]]
 ];

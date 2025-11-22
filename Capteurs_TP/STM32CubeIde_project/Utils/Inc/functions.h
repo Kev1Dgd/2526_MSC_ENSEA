@@ -40,6 +40,9 @@ void MagCalibLite(uint16_t N, uint16_t delay_ms);
 void MagCalib(I2C_HandleTypeDef *hi2c, double mag_bias[3], double mag_scale[3]);
 void MagMeasureMsgCalib(double *mag_data, char *buffer, size_t size, const double mag_bias[3], const double mag_scale[3]);
 
-
+#define MPU9250_ADDRESS  0x68 << 1
+#define TEMP_OFFSET 17
+#define CALIB_MAG_SAMPLES 300
+#define CALIB_MAG_DELAY_MS 50
 
 #endif /* INC_FUNCTIONS_H_ */

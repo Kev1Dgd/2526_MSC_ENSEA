@@ -8,5 +8,6 @@ var stm32g4xx__it_8c =
     [ "PendSV_Handler", "stm32g4xx__it_8c.html#a6303e1f258cbdc1f970ce579cc015623", null ],
     [ "SVC_Handler", "stm32g4xx__it_8c.html#a3e5ddb3df0d62f2dc357e64a3f04a6ce", null ],
     [ "SysTick_Handler", "stm32g4xx__it_8c.html#ab5e09814056d617c521549e542639b7e", null ],
+    [ "TIM2_IRQHandler", "stm32g4xx__it_8c.html#a38ad4725462bdc5e86c4ead4f04b9fc2", null ],
     [ "UsageFault_Handler", "stm32g4xx__it_8c.html#a1d98923de2ed6b7309b66f9ba2971647", null ]
 ];

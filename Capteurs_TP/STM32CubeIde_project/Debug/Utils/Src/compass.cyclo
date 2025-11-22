@@ -1,3 +1,6 @@
-../Utils/Src/compass.c:23:6:CompassCalibSinglePoint	1
-../Utils/Src/compass.c:49:6:CompassMeasureMsg	1
-../Utils/Src/compass.c:85:6:TiltCompensatedCompass	2
+../Utils/Src/compass.c:23:13:CompassInitParameters	3
+../Utils/Src/compass.c:38:6:CompassCalibSinglePoint	1
+../Utils/Src/compass.c:52:6:CompassMeasureMsg	1
+../Utils/Src/compass.c:78:6:TiltCompensatedCompass	2
+../Utils/Src/compass.c:107:6:TiltCompensatedComplementary	5
+../Utils/Src/compass.c:158:6:TiltCompensatedCompassAngles	5

@@ -8,13 +8,20 @@
 {\ttfamily \#include "{}main.\+h"{}}\newline
 {\ttfamily \#include "{}tools.\+h"{}}\newline
 {\ttfamily \#include "{}functions.\+h"{}}\newline
-Include dependency graph for main.\+c\+:
-% FIG 0
+{\ttfamily \#include "{}compass.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{main_8c_a70af21c671abfcc773614a9a4f63d920}{System\+Clock\+\_\+\+Config}} (void)
 \begin{DoxyCompactList}\small\item\em System Clock Configuration. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{main_8c_ae89fdd15729ad41a66911190fcbab23a}{MX\+\_\+\+GPIO\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em GPIO Initialization Function. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{main_8c_a4230d11f81d0b16e112f1cc3f40cb42f}{MX\+\_\+\+I2\+C1\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em I2\+C1 Initialization Function. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{main_8c_a21ad298121ac0d079b93bf2c49d0fa92}{MX\+\_\+\+LPUART1\+\_\+\+UART\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em LPUART1 Initialization Function. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{main_8c_af952250b2d49718b385e14a76fa7c1b8}{MX\+\_\+\+TIM2\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em TIM2 Initialization Function. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
 \begin{DoxyCompactList}\small\item\em The application entry point. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
@@ -27,6 +34,12 @@ I2\+C\+\_\+\+Handle\+Type\+Def {\bfseries hi2c1}
 \item 
 \Hypertarget{main_8c_a5c3f9dccaa7cebcc70e1657af9e5e5dc}\label{main_8c_a5c3f9dccaa7cebcc70e1657af9e5e5dc} 
 UART\+\_\+\+Handle\+Type\+Def {\bfseries hlpuart1}
+\item 
+\Hypertarget{main_8c_a2c80fd5510e2990a59a5c90d745c716c}\label{main_8c_a2c80fd5510e2990a59a5c90d745c716c} 
+TIM\+\_\+\+Handle\+Type\+Def {\bfseries htim2}
+\item 
+\Hypertarget{main_8c_a5072ba5d3ae687be6c927ba5191b6961}\label{main_8c_a5072ba5d3ae687be6c927ba5191b6961} 
+\mbox{\hyperlink{struct_compass_calib__t}{Compass\+Calib\+\_\+t}} {\bfseries acc\+\_\+calib}
 \end{DoxyCompactItemize}
 
 
@@ -71,6 +84,88 @@ The application entry point.
 
 \begin{DoxyRetVals}{Return values}
 {\em int} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{main_8c_ae89fdd15729ad41a66911190fcbab23a}\index{main.c@{main.c}!MX\_GPIO\_Init@{MX\_GPIO\_Init}}
+\index{MX\_GPIO\_Init@{MX\_GPIO\_Init}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{MX\_GPIO\_Init()}{MX\_GPIO\_Init()}}
+{\footnotesize\ttfamily \label{main_8c_ae89fdd15729ad41a66911190fcbab23a} 
+void MX\+\_\+\+GPIO\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+GPIO Initialization Function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{main_8c_a4230d11f81d0b16e112f1cc3f40cb42f}\index{main.c@{main.c}!MX\_I2C1\_Init@{MX\_I2C1\_Init}}
+\index{MX\_I2C1\_Init@{MX\_I2C1\_Init}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{MX\_I2C1\_Init()}{MX\_I2C1\_Init()}}
+{\footnotesize\ttfamily \label{main_8c_a4230d11f81d0b16e112f1cc3f40cb42f} 
+void MX\+\_\+\+I2\+C1\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+I2\+C1 Initialization Function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+Configure Analogue filter
+
+Configure Digital filter\Hypertarget{main_8c_a21ad298121ac0d079b93bf2c49d0fa92}\index{main.c@{main.c}!MX\_LPUART1\_UART\_Init@{MX\_LPUART1\_UART\_Init}}
+\index{MX\_LPUART1\_UART\_Init@{MX\_LPUART1\_UART\_Init}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{MX\_LPUART1\_UART\_Init()}{MX\_LPUART1\_UART\_Init()}}
+{\footnotesize\ttfamily \label{main_8c_a21ad298121ac0d079b93bf2c49d0fa92} 
+void MX\+\_\+\+LPUART1\+\_\+\+UART\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+LPUART1 Initialization Function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{main_8c_af952250b2d49718b385e14a76fa7c1b8}\index{main.c@{main.c}!MX\_TIM2\_Init@{MX\_TIM2\_Init}}
+\index{MX\_TIM2\_Init@{MX\_TIM2\_Init}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{MX\_TIM2\_Init()}{MX\_TIM2\_Init()}}
+{\footnotesize\ttfamily \label{main_8c_af952250b2d49718b385e14a76fa7c1b8} 
+void MX\+\_\+\+TIM2\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+TIM2 Initialization Function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
 \hline
 \end{DoxyRetVals}
 \Hypertarget{main_8c_a70af21c671abfcc773614a9a4f63d920}\index{main.c@{main.c}!SystemClock\_Config@{SystemClock\_Config}}

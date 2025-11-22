@@ -1,0 +1,139 @@
+\doxysection{Utils/\+Src/tools.c File Reference}
+\hypertarget{tools_8c}{}\label{tools_8c}\index{Utils/Src/tools.c@{Utils/Src/tools.c}}
+
+
+Fonctions servant au tout début du projet.  
+
+
+{\ttfamily \#include "{}tools.\+h"{}}\newline
+{\ttfamily \#include "{}string.\+h"{}}\newline
+{\ttfamily \#include "{}stdio.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{tools_8c_a1ef377b425c83109ec7998dc6fa71345}\label{tools_8c_a1ef377b425c83109ec7998dc6fa71345} 
+\#define {\bfseries LED\+\_\+\+G\+\_\+\+PORT}~GPIOA
+\item 
+\Hypertarget{tools_8c_a3d793023ce3cf36a952b0b68ab1a389a}\label{tools_8c_a3d793023ce3cf36a952b0b68ab1a389a} 
+\#define {\bfseries LED\+\_\+\+G\+\_\+\+PIN}~GPIO\+\_\+\+PIN\+\_\+5
+\item 
+\Hypertarget{tools_8c_aa978126404b82e6019effb062e31e1df}\label{tools_8c_aa978126404b82e6019effb062e31e1df} 
+\#define {\bfseries BTN\+\_\+\+PORT}~GPIOC
+\item 
+\Hypertarget{tools_8c_a6d68c581d3bc6b5b42af0365209f4960}\label{tools_8c_a6d68c581d3bc6b5b42af0365209f4960} 
+\#define {\bfseries BTN\+\_\+\+PIN}~GPIO\+\_\+\+PIN\+\_\+13
+\item 
+\Hypertarget{tools_8c_ad8906c0208cd948e4f5fe79a920a3b7d}\label{tools_8c_ad8906c0208cd948e4f5fe79a920a3b7d} 
+\#define {\bfseries ACTIVE\+\_\+\+LOW}~0
+\item 
+\Hypertarget{tools_8c_acbbf281da4d4578d7a128dcc66874836}\label{tools_8c_acbbf281da4d4578d7a128dcc66874836} 
+\#define {\bfseries SAMPLE\+\_\+\+RATE\+\_\+\+HZ}~100
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{tools_8c_a2b11b5ccaef1c6a272f2aa316aa5d2ac}\label{tools_8c_a2b11b5ccaef1c6a272f2aa316aa5d2ac} 
+static uint8\+\_\+t {\bfseries button\+\_\+is\+\_\+pressed} (void)
+\item 
+\Hypertarget{tools_8c_a7dfd9b79bc5a37d7df40207afbc5431f}\label{tools_8c_a7dfd9b79bc5a37d7df40207afbc5431f} 
+void {\bfseries setup} (void)
+\begin{DoxyCompactList}\small\item\em Initialisation UART + message d’accueil. Affiche un message de bienvenue sur le terminal série et prépare l’environnement de test. \end{DoxyCompactList}\item 
+\Hypertarget{tools_8c_a0b33edabd7f1c4e4a0bf32c67269be2f}\label{tools_8c_a0b33edabd7f1c4e4a0bf32c67269be2f} 
+void {\bfseries loop} (void)
+\begin{DoxyCompactList}\small\item\em Boucle principale \+: clignotement LED + affichage compteur UART. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tools_8c_a9fa7692c22eb5d1c0235abe969362d0e}{I2\+C\+\_\+scan}} (void)
+\begin{DoxyCompactList}\small\item\em Scan du bus I2C pour détecter les périphériques connectés. Balaye toutes les adresses possibles (0x00 à 0x7F) et affiche sur le terminal les adresses des périphériques répondant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tools_8c_a6f9f9262f2bc6813226d3cb1785fd3b4}{test\+\_\+\+LED}} (void)
+\begin{DoxyCompactList}\small\item\em Test du fonctionnement des LEDs verte et rouge. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{tools_8c_a717c88e2b51c68e34bfb0dcf2d54f50b}{Save\+Mag\+To\+CSV}} (const char \texorpdfstring{$\ast$}{*}filename, float \texorpdfstring{$\ast$}{*}Bx, float \texorpdfstring{$\ast$}{*}By, float \texorpdfstring{$\ast$}{*}Bz, uint16\+\_\+t N)
+\begin{DoxyCompactList}\small\item\em Enregistre les mesures du magnétomètre dans un fichier CSV. \end{DoxyCompactList}\item 
+\Hypertarget{tools_8c_a0f13ff5b8bdb34c1fed7957dc01ba2f8}\label{tools_8c_a0f13ff5b8bdb34c1fed7957dc01ba2f8} 
+void {\bfseries Test\+Mag\+CSV} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{tools_8c_a5c3f9dccaa7cebcc70e1657af9e5e5dc}\label{tools_8c_a5c3f9dccaa7cebcc70e1657af9e5e5dc} 
+UART\+\_\+\+Handle\+Type\+Def {\bfseries hlpuart1}
+\item 
+\Hypertarget{tools_8c_af7b2c26e44dadaaa798a5c3d82914ba7}\label{tools_8c_af7b2c26e44dadaaa798a5c3d82914ba7} 
+I2\+C\+\_\+\+Handle\+Type\+Def {\bfseries hi2c1}
+\item 
+\Hypertarget{tools_8c_aaa9b893636268e7bc2950100815c2a4f}\label{tools_8c_aaa9b893636268e7bc2950100815c2a4f} 
+uint8\+\_\+t {\bfseries prompt} \mbox{[}15\mbox{]} = "{}\textbackslash{}n\+STM32\+G431 $>$$>$ "{}
+\item 
+\Hypertarget{tools_8c_a62e03aa8d73c7f6332c61d78943dbd21}\label{tools_8c_a62e03aa8d73c7f6332c61d78943dbd21} 
+uint8\+\_\+t {\bfseries message} \mbox{[}100\mbox{]}
+\item 
+\Hypertarget{tools_8c_ad59d3ca4663b205f255a5c2c97a8d306}\label{tools_8c_ad59d3ca4663b205f255a5c2c97a8d306} 
+uint8\+\_\+t {\bfseries found\+Addresses} \mbox{[}128\mbox{]}
+\item 
+\Hypertarget{tools_8c_a72f732ed6189690d574f4ecbb173c226}\label{tools_8c_a72f732ed6189690d574f4ecbb173c226} 
+uint8\+\_\+t {\bfseries found\+Count} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Fonctions servant au tout début du projet. 
+
+\begin{DoxyAuthor}{Author}
+Nicolas SIMOND 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Novembre 2025 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{tools_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{tools_8c_a9fa7692c22eb5d1c0235abe969362d0e}\index{tools.c@{tools.c}!I2C\_scan@{I2C\_scan}}
+\index{I2C\_scan@{I2C\_scan}!tools.c@{tools.c}}
+\doxysubsubsection{\texorpdfstring{I2C\_scan()}{I2C\_scan()}}
+{\footnotesize\ttfamily \label{tools_8c_a9fa7692c22eb5d1c0235abe969362d0e} 
+void I2\+C\+\_\+scan (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Scan du bus I2C pour détecter les périphériques connectés. Balaye toutes les adresses possibles (0x00 à 0x7F) et affiche sur le terminal les adresses des périphériques répondant. 
+
+\begin{DoxyNote}{Note}
+Utilise la fonction HAL\+\_\+\+I2\+C\+\_\+\+Is\+Device\+Ready(). 
+\end{DoxyNote}
+\Hypertarget{tools_8c_a717c88e2b51c68e34bfb0dcf2d54f50b}\index{tools.c@{tools.c}!SaveMagToCSV@{SaveMagToCSV}}
+\index{SaveMagToCSV@{SaveMagToCSV}!tools.c@{tools.c}}
+\doxysubsubsection{\texorpdfstring{SaveMagToCSV()}{SaveMagToCSV()}}
+{\footnotesize\ttfamily \label{tools_8c_a717c88e2b51c68e34bfb0dcf2d54f50b} 
+int Save\+Mag\+To\+CSV (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{Bx}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{By}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{Bz}{, }\item[{uint16\+\_\+t}]{N}{}\end{DoxyParamCaption})}
+
+
+
+Enregistre les mesures du magnétomètre dans un fichier CSV. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nom du fichier CSV \\
+\hline
+{\em Bx} & Tableau des mesures X \\
+\hline
+{\em By} & Tableau des mesures Y \\
+\hline
+{\em Bz} & Tableau des mesures Z \\
+\hline
+{\em N} & Nombre de mesures \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 si OK, -\/1 si erreur 
+\end{DoxyReturn}
+\Hypertarget{tools_8c_a6f9f9262f2bc6813226d3cb1785fd3b4}\index{tools.c@{tools.c}!test\_LED@{test\_LED}}
+\index{test\_LED@{test\_LED}!tools.c@{tools.c}}
+\doxysubsubsection{\texorpdfstring{test\_LED()}{test\_LED()}}
+{\footnotesize\ttfamily \label{tools_8c_a6f9f9262f2bc6813226d3cb1785fd3b4} 
+void test\+\_\+\+LED (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Test du fonctionnement des LEDs verte et rouge. 
+
+Allume la LED pendant 1 seconde puis l\textquotesingle{}éteint. Permet de vérifier la configuration GPIO et la fonction HAL\+\_\+\+Delay. 

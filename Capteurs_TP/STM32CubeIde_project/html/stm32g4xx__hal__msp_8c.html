@@ -95,11 +95,6 @@ $(function(){initNavTree('stm32g4xx__hal__msp_8c.html','',''); });
 <p>This file provides code for the MSP Initialization and de-Initialization codes.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for stm32g4xx_hal_msp.c:</div>
-<div class="dyncontent">
-<div class="center"><img src="stm32g4xx__hal__msp_8c__incl.png" border="0" usemap="#a_core_2_src_2stm32g4xx__hal__msp_8c" loading="lazy" alt=""/></div>
-</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -112,6 +107,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:a0e553b32211877322f949b14801bbfa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART MSP Initialization This function configures the hardware resources used in this example.  <br /></td></tr>
 <tr class="memitem:a718f39804e3b910d738a0e1e46151188" id="r_a718f39804e3b910d738a0e1e46151188"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a718f39804e3b910d738a0e1e46151188">HAL_UART_MspDeInit</a> (UART_HandleTypeDef *huart)</td></tr>
 <tr class="memdesc:a718f39804e3b910d738a0e1e46151188"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART MSP De-Initialization This function freeze the hardware resources used in this example.  <br /></td></tr>
+<tr class="memitem:abb25ade2f7e3f7aae167bd52270c2b86" id="r_abb25ade2f7e3f7aae167bd52270c2b86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb25ade2f7e3f7aae167bd52270c2b86">HAL_TIM_Base_MspInit</a> (TIM_HandleTypeDef *htim_base)</td></tr>
+<tr class="memdesc:abb25ade2f7e3f7aae167bd52270c2b86"><td class="mdescLeft">&#160;</td><td class="mdescRight">TIM_Base MSP Initialization This function configures the hardware resources used in this example.  <br /></td></tr>
+<tr class="memitem:a555b8a2d3c7a07341f8cb1255318fa2b" id="r_a555b8a2d3c7a07341f8cb1255318fa2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a555b8a2d3c7a07341f8cb1255318fa2b">HAL_TIM_Base_MspDeInit</a> (TIM_HandleTypeDef *htim_base)</td></tr>
+<tr class="memdesc:a555b8a2d3c7a07341f8cb1255318fa2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">TIM_Base MSP De-Initialization This function freeze the hardware resources used in this example.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file provides code for the MSP Initialization and de-Initialization codes. </p>
@@ -200,6 +199,68 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Initializes the Global MSP. </p>
 <p>Disable the internal Pull-Up in Dead Battery pins of UCPD peripheral</p>
+
+</div>
+</div>
+<a id="a555b8a2d3c7a07341f8cb1255318fa2b" name="a555b8a2d3c7a07341f8cb1255318fa2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a555b8a2d3c7a07341f8cb1255318fa2b">&#9670;&#160;</a></span>HAL_TIM_Base_MspDeInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_TIM_Base_MspDeInit </td>
+          <td>(</td>
+          <td class="paramtype">TIM_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>htim_base</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>TIM_Base MSP De-Initialization This function freeze the hardware resources used in this example. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">htim_base</td><td>TIM_Base handle pointer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abb25ade2f7e3f7aae167bd52270c2b86" name="abb25ade2f7e3f7aae167bd52270c2b86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb25ade2f7e3f7aae167bd52270c2b86">&#9670;&#160;</a></span>HAL_TIM_Base_MspInit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_TIM_Base_MspInit </td>
+          <td>(</td>
+          <td class="paramtype">TIM_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>htim_base</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>TIM_Base MSP Initialization This function configures the hardware resources used in this example. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">htim_base</td><td>TIM_Base handle pointer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

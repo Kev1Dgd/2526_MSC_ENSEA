@@ -41,8 +41,11 @@
 \DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_adcd7555662d0c7cc435ff47a30af3ba4}{MagCalib}}(I2C\_HandleTypeDef\ *hi2c,\ \textcolor{keywordtype}{double}\ mag\_bias[3],\ \textcolor{keywordtype}{double}\ mag\_scale[3]);}
 \DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{functions_8h_a1b722895e8773e455ab662032c6e3517}{MagMeasureMsgCalib}}(\textcolor{keywordtype}{double}\ *mag\_data,\ \textcolor{keywordtype}{char}\ *buffer,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ mag\_bias[3],\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ mag\_scale[3]);}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_FUNCTIONS\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ MPU9250\_ADDRESS\ \ 0x68\ <<\ 1}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ TEMP\_OFFSET\ 17}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ CALIB\_MAG\_SAMPLES\ 300}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ CALIB\_MAG\_DELAY\_MS\ 50}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_FUNCTIONS\_H\_\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

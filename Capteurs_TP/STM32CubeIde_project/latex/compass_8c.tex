@@ -1,0 +1,102 @@
+\doxysection{Utils/\+Src/compass.c File Reference}
+\hypertarget{compass_8c}{}\label{compass_8c}\index{Utils/Src/compass.c@{Utils/Src/compass.c}}
+
+
+Création d\textquotesingle{}une boussole électronique (mono et multi capteurs).  
+
+
+{\ttfamily \#include "{}compass.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{compass_8c_a598a3330b3c21701223ee0ca14316eca}\label{compass_8c_a598a3330b3c21701223ee0ca14316eca} 
+\#define {\bfseries PI}~3.\+14159265358979323846
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{compass_8c_a19edbbe34e66518e310c1455c191f950}\label{compass_8c_a19edbbe34e66518e310c1455c191f950} 
+static void {\bfseries Compass\+Init\+Parameters} (void)
+\begin{DoxyCompactList}\small\item\em Initialise K si nécessaire. \end{DoxyCompactList}\item 
+\Hypertarget{compass_8c_a0149b346380f84a4e9c91eca7dc4c38a}\label{compass_8c_a0149b346380f84a4e9c91eca7dc4c38a} 
+void {\bfseries Compass\+Calib\+Single\+Point} (const double acc\mbox{[}3\mbox{]}, \mbox{\hyperlink{struct_compass_calib__t}{Compass\+Calib\+\_\+t}} \texorpdfstring{$\ast$}{*}calib)
+\begin{DoxyCompactList}\small\item\em Calibre un accéléromètre avec une méthode simple single-\/point. \end{DoxyCompactList}\item 
+\Hypertarget{compass_8c_ada900bcedd721fd8ac19af9c901ff898}\label{compass_8c_ada900bcedd721fd8ac19af9c901ff898} 
+void {\bfseries Compass\+Measure\+Msg} (const double acc\mbox{[}3\mbox{]}, char \texorpdfstring{$\ast$}{*}msg, size\+\_\+t msg\+\_\+len, \mbox{\hyperlink{struct_compass_calib__t}{Compass\+Calib\+\_\+t}} \texorpdfstring{$\ast$}{*}calib)
+\begin{DoxyCompactList}\small\item\em Calcule et formate les angles d\textquotesingle{}inclinaison à partir des données de l\textquotesingle{}accéléromètre. \end{DoxyCompactList}\item 
+\Hypertarget{compass_8c_aaebabb58f38272b70c182194ab68ceb2}\label{compass_8c_aaebabb58f38272b70c182194ab68ceb2} 
+void {\bfseries Tilt\+Compensated\+Compass} (const double acc\mbox{[}3\mbox{]}, const double mag\mbox{[}3\mbox{]}, double \texorpdfstring{$\ast$}{*}roll, double \texorpdfstring{$\ast$}{*}pitch, double \texorpdfstring{$\ast$}{*}heading)
+\begin{DoxyCompactList}\small\item\em Calcule l\textquotesingle{}orientation complète compensée en inclinaison (acc + mag) (identique à ta version, conservée). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{compass_8c_abbc9806afc9a6c4836f461b98f8801f1}{Tilt\+Compensated\+Compass\+Angles}} (const double acc\mbox{[}3\mbox{]}, const double mag\mbox{[}3\mbox{]}, double \texorpdfstring{$\ast$}{*}roll, double \texorpdfstring{$\ast$}{*}pitch, double \texorpdfstring{$\ast$}{*}heading)
+\begin{DoxyCompactList}\small\item\em Ancienne fonction Tilt\+Compensated\+Compass\+Angles. Conservée comme fallback \+: applique une lissage simple sur les angles calculés uniquement à partir de l\textquotesingle{}accéléromètre (sans gyro). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{compass_8c_a9de9be13b1e645650822466326783a14}{Tilt\+Compensated\+Complementary}} (const double acc\mbox{[}3\mbox{]}, const double gyro\+\_\+rates\mbox{[}3\mbox{]}, const double mag\mbox{[}3\mbox{]}, double \texorpdfstring{$\ast$}{*}roll, double \texorpdfstring{$\ast$}{*}pitch, double \texorpdfstring{$\ast$}{*}heading)
+\begin{DoxyCompactList}\small\item\em (NOUVEAU) Filtre complémentaire réel en discrete-\/time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{compass_8c_a21431830a78f670d5dc8e08ad860bcf9}\label{compass_8c_a21431830a78f670d5dc8e08ad860bcf9} 
+double {\bfseries Te} = 0.\+01
+\item 
+\Hypertarget{compass_8c_ae5f7c26321910a384f6f0d37910858a2}\label{compass_8c_ae5f7c26321910a384f6f0d37910858a2} 
+double {\bfseries tau} = 0.\+1
+\item 
+\Hypertarget{compass_8c_a74b45da7676e23dd8ec974cfc04c0137}\label{compass_8c_a74b45da7676e23dd8ec974cfc04c0137} 
+double {\bfseries K} = 0.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Création d\textquotesingle{}une boussole électronique (mono et multi capteurs). 
+
+\begin{DoxyAuthor}{Author}
+Kevin 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Novembre 2025 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{compass_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{compass_8c_abbc9806afc9a6c4836f461b98f8801f1}\index{compass.c@{compass.c}!TiltCompensatedCompassAngles@{TiltCompensatedCompassAngles}}
+\index{TiltCompensatedCompassAngles@{TiltCompensatedCompassAngles}!compass.c@{compass.c}}
+\doxysubsubsection{\texorpdfstring{TiltCompensatedCompassAngles()}{TiltCompensatedCompassAngles()}}
+{\footnotesize\ttfamily \label{compass_8c_abbc9806afc9a6c4836f461b98f8801f1} 
+void Tilt\+Compensated\+Compass\+Angles (\begin{DoxyParamCaption}\item[{const double}]{acc}{\mbox{[}3\mbox{]}, }\item[{const double}]{mag}{\mbox{[}3\mbox{]}, }\item[{double \texorpdfstring{$\ast$}{*}}]{roll}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{pitch}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{heading}{}\end{DoxyParamCaption})}
+
+
+
+Ancienne fonction Tilt\+Compensated\+Compass\+Angles. Conservée comme fallback \+: applique une lissage simple sur les angles calculés uniquement à partir de l\textquotesingle{}accéléromètre (sans gyro). 
+
+Pour un vrai filtre complémentaire (acc+gyro) utilise la fonction Tilt\+Compensated\+Complementary(...) ci-\/dessus. \Hypertarget{compass_8c_a9de9be13b1e645650822466326783a14}\index{compass.c@{compass.c}!TiltCompensatedComplementary@{TiltCompensatedComplementary}}
+\index{TiltCompensatedComplementary@{TiltCompensatedComplementary}!compass.c@{compass.c}}
+\doxysubsubsection{\texorpdfstring{TiltCompensatedComplementary()}{TiltCompensatedComplementary()}}
+{\footnotesize\ttfamily \label{compass_8c_a9de9be13b1e645650822466326783a14} 
+void Tilt\+Compensated\+Complementary (\begin{DoxyParamCaption}\item[{const double}]{acc}{\mbox{[}3\mbox{]}, }\item[{const double}]{gyro\+\_\+rates}{\mbox{[}3\mbox{]}, }\item[{const double}]{mag}{\mbox{[}3\mbox{]}, }\item[{double \texorpdfstring{$\ast$}{*}}]{roll}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{pitch}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{heading}{}\end{DoxyParamCaption})}
+
+
+
+(NOUVEAU) Filtre complémentaire réel en discrete-\/time. 
+
+\begin{DoxyVerb}    theta[n] = K * (theta[n-1] + Te * omega[n]) + (1-K) * theta_acc[n]
+\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em acc} & accéléromètre calibré \mbox{[}ax,ay,az\mbox{]} en g \\
+\hline
+{\em gyro\+\_\+rates} & gyroscope \mbox{[}gx,gy,gz\mbox{]} en deg/s \texorpdfstring{$<$}{<}--- {\bfseries{Vérifie l\textquotesingle{}unité}} de tes lectures ! \\
+\hline
+{\em mag} & magnétomètre calibré \mbox{[}mx,my,mz\mbox{]} en µT (peut être NULL si tu ne veux pas heading) \\
+\hline
+{\em roll} & sortie roulis (deg) \\
+\hline
+{\em pitch} & sortie tangage (deg) \\
+\hline
+{\em heading} & sortie azimut nord magnétique (deg) -- si mag == NULL, heading = NAN \\
+\hline
+\end{DoxyParams}

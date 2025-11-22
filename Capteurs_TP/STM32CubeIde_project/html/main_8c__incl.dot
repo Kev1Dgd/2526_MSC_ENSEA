@@ -24,4 +24,9 @@ digraph "Core/Src/main.c"
   Node9 [id="Node000009",label="functions.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$functions_8h.html",tooltip="En-têtes des fonctions de gestion du MPU-9250."];
   Node9 -> Node3 [id="edge10_Node000009_Node000003",color="steelblue1",style="solid",tooltip=" "];
   Node9 -> Node6 [id="edge11_Node000009_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node10 [id="edge12_Node000001_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="compass.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$compass_8h_source.html",tooltip=" "];
+  Node10 -> Node11 [id="edge13_Node000010_Node000011",color="steelblue1",style="solid",tooltip=" "];
+  Node11 [id="Node000011",label="stddef.h",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node10 -> Node2 [id="edge14_Node000010_Node000002",color="steelblue1",style="solid",tooltip=" "];
 }

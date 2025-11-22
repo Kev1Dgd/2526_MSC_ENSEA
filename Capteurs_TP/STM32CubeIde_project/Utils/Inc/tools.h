@@ -1,8 +1,6 @@
-/*
- * fonctions.h
- *
- *  Created on: Nov 8, 2024
- *      Author: Nicolas SIMOND
+/**
+ * @file tools.h
+ * @brief En-têtes des fonctions de tout début de projet
  */
 
 #ifndef INC_TOOLS_H_

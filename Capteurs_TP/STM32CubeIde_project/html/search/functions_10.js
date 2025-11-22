@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['variance_0',['Variance',['../functions_8c.html#af2f2dc756799f92592e71afd54cc90da',1,'Variance(float data[][3], int N, float avg[3], float var[3]):&#160;functions.c'],['../functions_8h.html#af2f2dc756799f92592e71afd54cc90da',1,'Variance(float data[][3], int N, float avg[3], float var[3]):&#160;functions.c']]]
+  ['usagefault_5fhandler_0',['UsageFault_Handler',['../stm32g4xx__it_8c.html#a1d98923de2ed6b7309b66f9ba2971647',1,'UsageFault_Handler(void):&#160;stm32g4xx_it.c'],['../stm32g4xx__it_8h.html#a1d98923de2ed6b7309b66f9ba2971647',1,'UsageFault_Handler(void):&#160;stm32g4xx_it.c']]]
 ];

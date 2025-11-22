@@ -1,24 +1,41 @@
-/*
- * compass.c
- *
- *  Created on: Nov 15, 2025
- *      Author: kevin
+/**
+ * @file compass.c
+ * @brief Création d'une boussole électronique (mono et multi capteurs)
+ * @author Kevin
+ * @date Novembre 2025
  */
 
 #include "compass.h"
 #include <math.h>
 #include <stdio.h>
 
+/* --- paramètres (définis ici) --- */
+double Te = 0.01;   // période d'échantillonnage (s)
+double tau = 0.1;   // constante de temps (s)
+double K = 0.0;     // sera initialisé dans CompassInitParameters()
+
+/* valeur PI plus précise */
+#ifndef PI
+#define PI 3.14159265358979323846
+#endif
+
+/**
+ * @brief  Initialise K si nécessaire.
+ */
+static void CompassInitParameters(void)
+{
+    if (K == 0.0) {
+        if ((tau + Te) != 0.0) {
+            K = tau / (tau + Te);
+        } else {
+            // fallback pour éviter la division par 0
+            K = 0.98;
+        }
+    }
+}
+
 /**
  * @brief Calibre un accéléromètre avec une méthode simple single-point.
- *
- * Cette fonction utilise une calibration basique :
- * - X et Y supposés à 0 g
- * - Z supposé à 1 g
- * Elle calcule uniquement l'offset et applique un gain unitaire.
- *
- * @param acc Tableau de 3 doubles contenant les mesures brutes de l'accéléromètre (X, Y, Z)
- * @param calib Pointeur vers une structure CompassCalib_t où seront stockés les offsets et gains
  */
 void CompassCalibSinglePoint(const double acc[3], CompassCalib_t *calib)
 {
@@ -33,18 +50,6 @@ void CompassCalibSinglePoint(const double acc[3], CompassCalib_t *calib)
 
 /**
  * @brief Calcule et formate les angles d'inclinaison à partir des données de l'accéléromètre.
- *
- * Cette fonction applique une calibration sur les axes, puis calcule :
- * - theta : angle dans le plan XY (atan2(Y, X))
- * - psi   : angle dans le plan XZ (atan2(X, Z))
- * - phi   : angle de rotation par rapport à l'axe Z (atan2(sqrt(X²+Y²), Z))
- *
- * Les angles sont ensuite convertis en degrés et stockés dans une chaîne de caractères formatée.
- *
- * @param acc Tableau de 3 doubles contenant les mesures brutes de l'accéléromètre (X, Y, Z)
- * @param msg Chaîne de caractères où sera écrit le message formaté
- * @param msg_len Taille maximale de la chaîne msg
- * @param calib Pointeur vers la structure CompassCalib_t contenant les offsets et gains à appliquer
  */
 void CompassMeasureMsg(const double acc[3], char *msg, size_t msg_len, CompassCalib_t *calib)
 {
@@ -58,51 +63,130 @@ void CompassMeasureMsg(const double acc[3], char *msg, size_t msg_len, CompassCa
     double phi   = atan2(sqrt(ax*ax + ay*ay), az);     // Rotation par rapport à Z
 
     // Conversion en degrés
-    theta *= (180.0 / M_PI);
-    psi   *= (180.0 / M_PI);
-    phi   *= (180.0 / M_PI);
+    theta *= (180.0 / PI);
+    psi   *= (180.0 / PI);
+    phi   *= (180.0 / PI);
 
-    // Affichage formaté
+    // Affichage
     snprintf(msg, msg_len,
-             "Theta(XY)=%.2f deg | Psi(XZ)=%.2f deg | Phi(Z)=%.2f deg\r\n",
+             "Theta(XY) = %.2f deg | Psi(XZ) = %.2f deg | Phi(Z) = %.2f deg\r\n",
              theta, psi, phi);
+}
+
+/**
+ * @brief  Calcule l'orientation complète compensée en inclinaison (acc + mag)
+ *         (identique à ta version, conservée)
+ */
+void TiltCompensatedCompass(const double acc[3], const double mag[3],
+                            double *roll, double *pitch, double *heading){
+    /* Roulis et tangage depuis acc (deg) */
+    *roll  = atan2(acc[1], acc[2]) * (180.0 / PI);
+    *pitch = atan2(-acc[0], sqrt(acc[1]*acc[1] + acc[2]*acc[2])) * (180.0 / PI);
+
+    /* conversion en rad pour compensation magnétomètre */
+    double roll_rad  = *roll  * (PI / 180.0);
+    double pitch_rad = *pitch * (PI / 180.0);
+
+    double Xh = mag[0]*cos(pitch_rad) + mag[2]*sin(pitch_rad);
+    double Yh = mag[0]*sin(roll_rad)*sin(pitch_rad) + mag[1]*cos(roll_rad) - mag[2]*sin(roll_rad)*cos(pitch_rad);
+
+    *heading = atan2(Yh, Xh) * (180.0 / PI);
+    if(*heading < 0.0) *heading += 360.0;
 }
 
 
 /**
- * @brief  Calcule l'orientation complète compensée en inclinaison
- * @param  acc Calibré, tableau de 3 valeurs de l'accéléromètre [X,Y,Z] en g
- * @param  mag Calibré, tableau de 3 valeurs du magnétomètre [X,Y,Z] en uT
- * @param  roll Pointeur vers variable qui recevra le roulis (deg)
- * @param  pitch Pointeur vers variable qui recevra le tangage (deg)
- * @param  heading Pointeur vers variable qui recevra l'azimut nord magnétique (deg)
- * @retval None
+ * @brief  Ancienne fonction TiltCompensatedCompassAngles.
+ *         Conservée comme fallback : applique une lissage simple sur les angles
+ *         calculés uniquement à partir de l'accéléromètre (sans gyro).
  *
- * @note  - Roulis et tangage sont calculés à partir de l'accéléromètre
- *        - Azimut (heading) est compensé pour l'inclinaison
- *        - Toutes les valeurs sont renvoyées en degrés
+ *         Pour un vrai filtre complémentaire (acc+gyro) utilise la fonction
+ *         TiltCompensatedComplementary(...) ci-dessus.
  */
-void TiltCompensatedCompass(const double acc[3], const double mag[3],
-                            double *roll, double *pitch, double *heading)
-{
-    // --- Calcul roulis et tangage à partir de l'accéléromètre ---
-    // Roulis φ = rotation autour de X
-    *roll  = atan2(acc[1], acc[2]) * (180.0 / M_PI);
+void TiltCompensatedCompassAngles(const double acc[3], const double mag[3],
+                                  double *roll, double *pitch, double *heading) {
+    static double roll_prev = 0.0;
+    static double pitch_prev = 0.0;
 
-    // Tangage θ = rotation autour de Y
-    *pitch = atan2(-acc[0], sqrt(acc[1]*acc[1] + acc[2]*acc[2])) * (180.0 / M_PI);
+    /* angles depuis acc (deg) */
+    double roll_acc  = atan2(acc[1], acc[2]) * (180.0 / PI);
+    double pitch_acc = atan2(-acc[0], sqrt(acc[1]*acc[1] + acc[2]*acc[2])) * (180.0 / PI);
 
-    // Conversion en radians pour les calculs de compensation
-    double roll_rad  = *roll  * (M_PI / 180.0);
-    double pitch_rad = *pitch * (M_PI / 180.0);
+    /* utilisation d'un simple alpha pour lisser (exponential smoothing) */
+    CompassInitParameters(); /* récupère K (on peut réutiliser K comme alpha si tu veux) */
+    double alpha = 1.0 - K; /* si tau grand -> K proche de 1 -> alpha petit -> plus lissage */
 
-    // --- Compensation magnétomètre ---
-    double Xh = mag[0]*cos(pitch_rad) + mag[2]*sin(pitch_rad);
-    double Yh = mag[0]*sin(roll_rad)*sin(pitch_rad) + mag[1]*cos(roll_rad) - mag[2]*sin(roll_rad)*cos(pitch_rad);
+    *roll  = alpha * roll_acc  + (1.0 - alpha) * roll_prev;
+    *pitch = alpha * pitch_acc + (1.0 - alpha) * pitch_prev;
 
-    // Azimut compensé (nord magnétique)
-    *heading = atan2(Yh, Xh) * (180.0 / M_PI);
+    roll_prev  = *roll;
+    pitch_prev = *pitch;
 
-    // Ajuste pour avoir un angle positif 0–360°
-    if(*heading < 0) *heading += 360.0;
+    /* heading via mag si disponible */
+    if (mag != NULL && heading != NULL) {
+        double roll_rad  = (*roll)  * (PI / 180.0);
+        double pitch_rad = (*pitch) * (PI / 180.0);
+
+        double Xh = mag[0]*cos(pitch_rad) + mag[2]*sin(pitch_rad);
+        double Yh = mag[0]*sin(roll_rad)*sin(pitch_rad) + mag[1]*cos(roll_rad) - mag[2]*sin(roll_rad)*cos(pitch_rad);
+
+        *heading = atan2(Yh, Xh) * (180.0 / PI);
+        if (*heading < 0.0) *heading += 360.0;
+    } else if (heading != NULL) {
+        *heading = NAN;
+    }
 }
+
+
+/**
+ * @brief  (NOUVEAU) Filtre complémentaire réel en discrete-time.
+ *
+ *         theta[n] = K * (theta[n-1] + Te * omega[n]) + (1-K) * theta_acc[n]
+ *
+ * @param acc         accéléromètre calibré [ax,ay,az] en g
+ * @param gyro_rates  gyroscope [gx,gy,gz] en deg/s  <--- **Vérifie l'unité** de tes lectures !
+ * @param mag         magnétomètre calibré [mx,my,mz] en µT (peut être NULL si tu ne veux pas heading)
+ * @param roll        sortie roulis (deg)
+ * @param pitch       sortie tangage (deg)
+ * @param heading     sortie azimut nord magnétique (deg) -- si mag == NULL, heading = NAN
+ */
+void TiltCompensatedComplementary(const double acc[3], const double gyro_rates[3], const double mag[3],
+                                  double *roll, double *pitch, double *heading)
+{
+    static double roll_prev = 0.0;
+    static double pitch_prev = 0.0;
+
+    // Initialisation de K
+    CompassInitParameters();
+
+    // Angles à partir de l'accéléromètre
+    double roll_acc  = atan2(acc[1], acc[2]) * (180.0 / PI);
+    double pitch_acc = atan2(-acc[0], sqrt(acc[1]*acc[1] + acc[2]*acc[2])) * (180.0 / PI);
+
+    // Intégration du gyroscope
+    double roll_from_gyro  = roll_prev  + Te * gyro_rates[0];
+    double pitch_from_gyro = pitch_prev + Te * gyro_rates[1];
+
+    // Formule proposée par l'énoncé
+    *roll  = K * (roll_from_gyro)  + (1.0 - K) * roll_acc;
+    *pitch = K * (pitch_from_gyro) + (1.0 - K) * pitch_acc;
+
+    // Sauvegarde des valeurs
+    roll_prev  = *roll;
+    pitch_prev = *pitch;
+
+    // Calcul du heading par mag
+    if (mag != NULL && heading != NULL) {
+        double roll_rad  = (*roll)  * (PI / 180.0);
+        double pitch_rad = (*pitch) * (PI / 180.0);
+
+        double Xh = mag[0]*cos(pitch_rad) + mag[2]*sin(pitch_rad);
+        double Yh = mag[0]*sin(roll_rad)*sin(pitch_rad) + mag[1]*cos(roll_rad) - mag[2]*sin(roll_rad)*cos(pitch_rad);
+
+        *heading = atan2(Yh, Xh) * (180.0 / PI);
+        if (*heading < 0.0) *heading += 360.0;
+    } else if (heading != NULL) {
+        *heading = NAN;
+    }
+}
+
