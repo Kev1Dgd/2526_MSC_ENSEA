@@ -20,7 +20,7 @@ Ce projet a pour objectif de mettre en pratique les concepts de capteurs et syst
 
 ## 📚 Documentation
 
-La documentation Doxygen est disponible [ici](./html/index.html) 🌐
+La documentation Doxygen est disponible [ici](./STM32CubeIde_projet/html/index.html) 🌐
 Elle contient :
 
 * Description des fichiers sources (`main.c`, `functions.c`, `functions.h`, `compass.c`, `compass.h`)
@@ -38,10 +38,10 @@ Elle contient :
 ## 🧩 Structure du projet
 
 ```
-G431RB-MSC-Sensors/
+Capteurs_TP/
 ├── Docs/                    # Documentation 
 ├── MATLAB/                  # Fichiers MATLAB pour simulation
-├── STM32CubeIDE_project/    # Projet STM32CubeIDE
+├── STM32CubeIde_project/    # Projet STM32CubeIDE
 │   ├── Core/                # Fichiers générés automatiquement par STM32Cube
 │   │   ├── main.c
 │   │   └── main.h
