@@ -1,7 +1,7 @@
-../Utils/Src/tools.c:31:23:button_is_pressed	1
-../Utils/Src/tools.c:47:6:setup	1
-../Utils/Src/tools.c:60:6:loop	2
-../Utils/Src/tools.c:87:6:I2C_scan	3
-../Utils/Src/tools.c:111:6:test_LED	1
-../Utils/Src/tools.c:128:5:SaveMagToCSV	3
-../Utils/Src/tools.c:148:6:TestMagCSV	2
+../Utils/Src/tools.c:38:23:button_is_pressed	1
+../Utils/Src/tools.c:54:6:setup	1
+../Utils/Src/tools.c:67:6:loop	2
+../Utils/Src/tools.c:94:6:I2C_scan	3
+../Utils/Src/tools.c:118:6:test_LED	1
+../Utils/Src/tools.c:135:5:SaveMagToCSV	3
+../Utils/Src/tools.c:155:6:TestMagCSV	2

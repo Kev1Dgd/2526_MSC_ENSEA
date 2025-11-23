@@ -3513,9 +3513,9 @@ Discarded input sections
                 0x00000000       0x70 ./Utils/Src/compass.o
  .text.TiltCompensatedComplementary
                 0x00000000      0x3d4 ./Utils/Src/compass.o
- .bss.roll_prev.3
+ .bss.roll_prev.1
                 0x00000000        0x8 ./Utils/Src/compass.o
- .bss.pitch_prev.2
+ .bss.pitch_prev.0
                 0x00000000        0x8 ./Utils/Src/compass.o
  .debug_macro   0x00000000      0xad8 ./Utils/Src/compass.o
  .debug_macro   0x00000000      0x190 ./Utils/Src/compass.o
@@ -5475,9 +5475,9 @@ LOAD C:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x20000394                uwTick
  .bss.K         0x20000398        0x8 ./Utils/Src/compass.o
                 0x20000398                K
- .bss.roll_prev.1
+ .bss.roll_prev.3
                 0x200003a0        0x8 ./Utils/Src/compass.o
- .bss.pitch_prev.0
+ .bss.pitch_prev.2
                 0x200003a8        0x8 ./Utils/Src/compass.o
  .bss.initialized.1
                 0x200003b0        0x1 ./Utils/Src/functions.o
@@ -6020,7 +6020,7 @@ LOAD C:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x000207b8      0x112 ./Utils/Src/tools.o
  .debug_macro   0x000208ca       0x56 ./Utils/Src/tools.o
 
-.debug_line     0x00000000    0x19803
+.debug_line     0x00000000    0x19804
  .debug_line    0x00000000      0xbe6 ./Core/Src/main.o
  .debug_line    0x00000be6      0x8aa ./Core/Src/stm32g4xx_hal_msp.o
  .debug_line    0x00001490      0x859 ./Core/Src/stm32g4xx_it.o
@@ -6042,7 +6042,7 @@ LOAD C:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x00015cb3      0xd00 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.o
  .debug_line    0x000169b3      0xdcd ./Utils/Src/compass.o
  .debug_line    0x00017780     0x159f ./Utils/Src/functions.o
- .debug_line    0x00018d1f      0xae4 ./Utils/Src/tools.o
+ .debug_line    0x00018d1f      0xae5 ./Utils/Src/tools.o
 
 .debug_str      0x00000000    0xcc372
  .debug_str     0x00000000    0xcc372 ./Core/Src/main.o
