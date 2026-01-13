@@ -21,14 +21,12 @@ Cette spécialité forme des ingénieurs capables de concevoir, modéliser et pi
 
 Les TP et projets s’appuient sur les enseignements suivants :
 
-* ⚡ **Compatibilité électromagnétique (CEM)**
 * 🤖 **Robotique**
 * 📡 **Capteurs et chaînes de mesure**
 * 🧠 **Systèmes d’acquisition et de commande**
 * ⏱️ **Noyau temps réel**
-* ⚙️ **Conception et dimensionnement de systèmes mécaniques**
 * 🔗 **Bus et réseaux**
-* 🔄 **Commande numérique d’actionneurs**
+* ✈️ **Préparation d'un drone volant à "l'infini"**
 
 ---
 
@@ -38,11 +36,10 @@ Les TP et projets s’appuient sur les enseignements suivants :
 📦 2526_MSC_ENSEA
  ┣ 📁 Robotique_TP
  ┣ 📁 Capteurs_TP
- ┣ 📁 Systemes_Commande_TP
+ ┣ 📁 SystemesAcquisitionCommande_TP
  ┣ 📁 Noyau_Temps_Reel_TP
- ┣ 📁 Bus_Reseaux_TP
- ┣ 📁 Commande_Actionneurs_TP
- ┣ 📁 Projet_Planeur
+ ┣ 📁 Bus&Reseaux_TP
+ ┣ 📁 Projet_Drone_Infini
  ┗ 📜 README.md
 ```
 
