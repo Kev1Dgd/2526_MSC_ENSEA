@@ -1,0 +1,7 @@
+../Core/Src/motor_control/motor.c:20:5:motor_init	16	static
+../Core/Src/motor_control/motor.c:41:5:motor_start	16	static
+../Core/Src/motor_control/motor.c:83:5:motor_stop	16	static
+../Core/Src/motor_control/motor.c:109:5:motor_set_speed	40	static
+../Core/Src/motor_control/motor.c:136:10:motor_get_speed	4	static
+../Core/Src/motor_control/motor.c:141:5:motor_ramp_to_speed	32	static
+../Core/Src/motor_control/motor.c:169:6:motor_ramp_task	24	static
