@@ -1,0 +1,3 @@
+../Core/Src/adxl345.c:28:19:adxl345_read_reg	40	static
+../Core/Src/adxl345.c:46:19:adxl345_read_multi	40	static
+../Core/Src/adxl345.c:70:19:adxl345_write_reg	32	static

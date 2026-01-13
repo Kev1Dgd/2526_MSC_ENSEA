@@ -1,0 +1,8 @@
+../shell/shell.c:32:13:uart_read	1
+../shell/shell.c:45:12:uart_write	1
+../shell/shell.c:50:12:sh_help	2
+../shell/shell.c:61:6:shell_init	1
+../shell/shell.c:74:5:shell_add	2
+../shell/shell.c:86:12:shell_exec	6
+../shell/shell.c:118:5:shell_run	6
+../shell/shell.c:166:6:shell_uart_rx_callback	2
